@@ -230,4 +230,17 @@ footer {
     border-radius: 18px;
   }
 
- 
+  .card label {
+    min-height: 50px;
+    font-size: 16px;
+  }
+
+  .tipos button {
+    min-height: 55px;
+  }
+
+  .pedir {
+    min-height: 58px;
+    font-size: 18px;
+  }
+}
