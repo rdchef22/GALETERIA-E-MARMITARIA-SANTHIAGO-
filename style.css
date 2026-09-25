@@ -1,209 +1,69 @@
-* {
-  box-sizing: border-box;
+/* ===== BOTÕES DAS OPÇÕES DO CARDÁPIO ===== */
+
+.card label {
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+  min-height: 52px !important;
+  margin: 8px 0 !important;
+  padding: 12px 14px !important;
+  background: #fff !important;
+  border: 2px solid #eee0d8 !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: #333 !important;
+  transition: all 0.2s ease !important;
 }
 
-html {
-  scroll-behavior: smooth;
+.card label:hover {
+  background: #fff5f2 !important;
+  border-color: #8b1e16 !important;
+  transform: translateX(3px);
 }
 
-body {
-  margin: 0;
-  padding-bottom: 90px;
-  font-family: Arial, sans-serif;
-  background: #f7f3ed;
-  color: #292929;
-  -webkit-tap-highlight-color: transparent;
+.card label:has(input:checked) {
+  background: #fff0ec !important;
+  border-color: #8b1e16 !important;
+  color: #8b1e16 !important;
+  box-shadow: 0 3px 10px #8b1e1620 !important;
 }
 
-/* ================= CABEÇALHO ================= */
+.card input[type="checkbox"] {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  width: 23px !important;
+  height: 23px !important;
+  min-width: 23px !important;
+  margin: 0 12px 0 0 !important;
+  border: 2px solid #aaa !important;
+  border-radius: 7px !important;
+  background: white !important;
+  position: relative !important;
+  cursor: pointer !important;
+}
 
-header {
-  background: linear-gradient(145deg, #8b1e16, #b52a1f);
+.card input[type="checkbox"]:checked {
+  background: #8b1e16 !important;
+  border-color: #8b1e16 !important;
+}
+
+.card input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
   color: white;
-  padding: 18px 16px 28px;
-  border-radius: 0 0 28px 28px;
-  box-shadow: 0 5px 20px #0003;
-}
-
-.menu {
-  max-width: 900px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.links {
-  display: flex;
-  gap: 5px;
-}
-
-.links a {
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
+  font-size: 17px;
   font-weight: bold;
-  padding: 8px 9px;
-  border-radius: 9px;
-  transition: 0.2s;
+  left: 3px;
+  top: -1px;
 }
 
-.links a:hover {
-  background: #ffffff22;
-  transform: translateY(-2px);
+.card label span {
+  flex: 1 !important;
 }
 
-.localizacao {
-  max-width: 900px;
-  margin: 18px auto 0;
-  padding: 10px 13px;
-  background: #ffffff18;
-  border-radius: 12px;
-  font-size: 13px;
+.card label b {
+  color: #8b1e16 !important;
+  font-size: 20px !important;
 }
-
-/* ================= CONTEÚDO ================= */
-
-main {
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
-  padding: 14px;
-}
-
-/* ================= BANNER ================= */
-
-.banner {
-  margin-top: -5px;
-  padding: 25px 20px;
-  min-height: 210px;
-  border-radius: 22px;
-  background: linear-gradient(135deg, #fff8e8, #ffe5c5);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
-  box-shadow: 0 5px 18px #0001;
-}
-
-.banner-text {
-  max-width: 600px;
-}
-
-.banner-tag {
-  display: inline-block;
-  background: #f2b632;
-  color: #432700;
-  padding: 7px 11px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 900;
-}
-
-.banner h1 {
-  margin: 12px 0 8px;
-  color: #8b1e16;
-  font-size: clamp(27px, 7vw, 40px);
-  line-height: 1.05;
-}
-
-.banner p {
-  margin: 0;
-  color: #666;
-  line-height: 1.4;
-}
-
-.banner-btn {
-  display: inline-block;
-  margin-top: 16px;
-  padding: 12px 18px;
-  border-radius: 12px;
-  background: #8b1e16;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  transition: 0.2s;
-}
-
-.banner-btn:hover {
-  transform: translateY(-2px);
-}
-
-.banner-emoji {
-  font-size: 85px;
-  animation: flutuar 2.5s infinite ease-in-out;
-}
-
-/* ================= PREÇOS ================= */
-
-.precos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin: 12px 0;
-}
-
-.preco-card {
-  background: white;
-  border-radius: 17px;
-  padding: 14px;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  box-shadow: 0 4px 15px #0001;
-  transition: 0.2s;
-}
-
-.preco-card:hover {
-  transform: translateY(-3px);
-}
-
-.preco-icon {
-  font-size: 30px;
-}
-
-.preco-card small {
-  display: block;
-  color: #777;
-  font-size: 12px;
-}
-
-.preco-card strong {
-  display: block;
-  margin-top: 3px;
-  color: #8b1e16;
-  font-size: 19px;
-}
-
-/* ================= CATEGORIAS ================= */
-
-.categorias {
-  margin: 22px 0;
-}
-
-.categorias h2 {
-  font-size: 20px;
-  margin-bottom: 12px;
-}
-
-.categorias-lista {
-  display: flex;
-  gap: 10px;
-  overflow-x: auto;
-  padding-bottom: 5px;
-}
-
-.categorias-lista::-webkit-scrollbar {
-  display: none;
-}
-
-.categorias-lista a {
-  min-width: 90px;
-  background: white;
-  border
