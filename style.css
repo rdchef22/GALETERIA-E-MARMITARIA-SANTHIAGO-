@@ -14,13 +14,61 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* =========================
+   CABEÇALHO
+========================= */
+
 header {
   background: linear-gradient(145deg, #8b1e16, #b52a1f);
   color: #fff;
   text-align: center;
-  padding: 34px 18px 42px;
-  border-radius: 0 0 28px 28px;
-  box-shadow: 0 5px 20px #0003;
+  padding: 28px 18px 45px;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 6px 25px #0004;
+  animation: aparecer 0.7s ease;
+}
+
+.menu {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  animation: deslizarDireita 0.7s ease;
+}
+
+.links {
+  display: flex;
+  gap: 8px;
+}
+
+.links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 9px 12px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.links a:hover {
+  background: #ffffff22;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  max-width: 850px;
+  margin: auto;
 }
 
 .tag {
@@ -31,12 +79,14 @@ header {
   padding: 8px 15px;
   border-radius: 999px;
   font-size: 14px;
+  animation: flutuar 2.5s ease-in-out infinite;
 }
 
 h1 {
   font-size: clamp(28px, 8vw, 44px);
   line-height: 1.05;
-  margin: 14px 0 10px;
+  margin: 16px 0 10px;
+  animation: subir 0.8s ease;
 }
 
 header p {
@@ -45,12 +95,52 @@ header p {
   font-size: 15px;
 }
 
+.hero .data {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+.btn-cardapio {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: #f2b632;
+  color: #3d2200;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 6px 15px #0003;
+  transition: 0.25s;
+}
+
+.btn-cardapio:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 9px 20px #0004;
+}
+
+.btn-cardapio:active {
+  transform: scale(0.96);
+}
+
+/* =========================
+   CONTEÚDO
+========================= */
+
 main {
   width: 100%;
   max-width: 850px;
   margin: auto;
   padding: 16px;
 }
+
+main > section {
+  animation: subir 0.7s ease both;
+}
+
+/* =========================
+   PREÇOS
+========================= */
 
 .prices {
   display: grid;
@@ -59,21 +149,23 @@ main {
   margin-top: -8px;
 }
 
-.prices div,
-.card,
-.pedido {
+.prices div {
   background: #fff;
   border-radius: 20px;
   padding: 18px;
   box-shadow: 0 5px 18px #0001;
-}
-
-.prices div {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 2px 10px;
   align-items: center;
   font-size: 28px;
+  transition: 0.3s;
+  animation: subir 0.8s ease;
+}
+
+.prices div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #0002;
 }
 
 .prices span {
@@ -87,8 +179,27 @@ main {
   font-size: 21px;
 }
 
+/* =========================
+   CARDÁPIO
+========================= */
+
+#cardapio h2 {
+  margin-top: 28px;
+  animation: deslizarEsquerda 0.7s ease;
+}
+
 .card {
   margin: 14px 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 18px #0001;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #0002;
 }
 
 .card h3 {
@@ -112,6 +223,12 @@ main {
   transition: 0.2s;
 }
 
+.card label:hover {
+  background: #fff1ed;
+  border-color: #d99a91;
+  transform: translateX(4px);
+}
+
 .card label:active {
   transform: scale(0.98);
 }
@@ -123,13 +240,21 @@ main {
   accent-color: #8b1e16;
 }
 
+/* =========================
+   PEDIDO
+========================= */
+
 .pedido {
-  margin-top: 18px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 18px #0001;
 }
 
-.pedido h3 {
-  margin-top: 0;
+.pedido h2 {
   color: #8b1e16;
+  margin-top: 0;
 }
 
 .tipos {
@@ -141,23 +266,34 @@ main {
 .tipos button {
   min-height: 52px;
   border: 2px solid #ddd;
-  background: white;
+  background: #fff;
   border-radius: 14px;
   padding: 13px;
   font-weight: 800;
   font-size: 15px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: 0.25s;
+}
+
+.tipos button:hover {
+  transform: translateY(-3px);
+  border-color: #8b1e16;
 }
 
 .tipos button:active {
-  transform: scale(0.97);
+  transform: scale(0.96);
 }
 
 .tipos button.active {
   border-color: #8b1e16;
   background: #fff2ef;
   color: #8b1e16;
+  box-shadow: 0 4px 12px #8b1e1625;
+}
+
+#selecionados {
+  min-height: 25px;
+  line-height: 1.6;
 }
 
 .total {
@@ -173,11 +309,16 @@ main {
 .total strong {
   color: #8b1e16;
   font-size: 23px;
+  transition: 0.2s;
 }
+
+/* =========================
+   BOTÃO WHATSAPP
+========================= */
 
 .pedir {
   width: 100%;
-  min-height: 56px;
+  min-height: 58px;
   border: 0;
   border-radius: 15px;
   padding: 16px;
@@ -186,186 +327,4 @@ main {
   font-size: 17px;
   font-weight: 800;
   cursor: pointer;
-  box-shadow: 0 5px 12px #8b1e1640;
-  transition: 0.2s;
-}
-
-.pedir:active {
-  transform: scale(0.98);
-}
-
-footer {
-  text-align: center;
-  padding: 28px 16px;
-  color: #777;
-  font-size: 14px;
-}
-
-@media (max-width: 600px) {
-
-  main {
-    padding: 12px;
-  }
-
-  header {
-    padding: 30px 16px 36px;
-  }
-
-  h1 {
-    font-size: 31px;
-  }
-
-  .prices {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-
-  .prices div {
-    padding: 16px;
-  }
-
-  .card,
-  .pedido {
-    padding: 16px;
-    border-radius: 18px;
-  }
-
-  .card label {
-    min-height: 50px;
-    font-size: 16px;
-  }
-
-  .tipos button {
-    min-height: 55px;
-  }
-
-  .pedir {
-    min-height: 58px;
-    font-size: 18px;
-  }
-}
-/* ===== MENU E INÍCIO ===== */
-
-.menu {
-  max-width: 1000px;
-  margin: 0 auto 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.logo {
-  font-size: 18px;
-  font-weight: 900;
-}
-
-.links {
-  display: flex;
-  gap: 8px;
-}
-
-.links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 9px 12px;
-  border-radius: 10px;
-  transition: 0.2s;
-}
-
-.links a:hover {
-  background: #ffffff22;
-}
-
-.hero {
-  max-width: 850px;
-  margin: auto;
-}
-
-.hero h1 {
-  margin-top: 16px;
-}
-
-.hero .data {
-  margin-top: 10px;
-  font-size: 14px;
-}
-
-.btn-cardapio {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 22px;
-  border-radius: 14px;
-  background: #f2b632;
-  color: #3d2200;
-  text-decoration: none;
-  font-weight: 900;
-  box-shadow: 0 5px 12px #0002;
-  transition: 0.2s;
-}
-
-.btn-cardapio:active {
-  transform: scale(0.97);
-}
-
-.contato {
-  margin: 18px 0;
-  padding: 25px 18px;
-  background: #fff;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 5px 18px #0001;
-}
-
-.contato h2 {
-  margin-top: 0;
-  color: #8b1e16;
-}
-
-.contato p {
-  color: #666;
-}
-
-
-/* ===== CELULAR ===== */
-
-@media (max-width: 600px) {
-
-  .menu {
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .logo {
-    font-size: 17px;
-  }
-
-  .links {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-  }
-
-  .links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  padding: 9px 12px;
-  border-radius: 10px;
-  transition: 0.2s;
-  }
-  }
-
-  .hero h1 {
-    font-size: 31px;
-  }
-
-  .btn-cardapio {
-    width: 100%;
-    text-align: center;
-    padding: 16px;
-  }
-}
+  box-shadow: 0 6
