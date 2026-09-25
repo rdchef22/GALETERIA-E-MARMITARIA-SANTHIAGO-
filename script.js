@@ -13,20 +13,18 @@ function atualizarPedido() {
   if (itens.length === 0) {
     selecionados.textContent = "Nenhuma opção selecionada.";
   } else {
-    selecionados.innerHTML = `
-      <strong>Seu pedido:</strong><br>
-      ${itens.map(item => `🍽️ ${item}`).join("<br>")}
-    `;
+    selecionados.innerHTML =
+      "<strong>Seu pedido:</strong><br>" +
+      itens.map(item => "🍽️ " + item).join("<br>");
   }
 
-  total.textContent = `R$ ${preco.toFixed(2).replace(".", ",")}`;
+  total.textContent =
+    "R$ " + preco.toFixed(2).replace(".", ",");
 }
 
 botoesTipo.forEach(botao => {
   botao.addEventListener("click", () => {
-    botoesTipo.forEach(item => {
-      item.classList.remove("active");
-    });
+    botoesTipo.forEach(item => item.classList.remove("active"));
 
     botao.classList.add("active");
 
@@ -41,6 +39,7 @@ ingredientes.forEach(item => {
 });
 
 botaoPedir.addEventListener("click", () => {
+
   const itens = [...document.querySelectorAll('input[type="checkbox"]:checked')]
     .map(item => item.value);
 
@@ -49,22 +48,28 @@ botaoPedir.addEventListener("click", () => {
     return;
   }
 
-  const tipo = document.querySelector(".tipos button.active").textContent
-    .replace(/\s+/g, " ")
-    .trim();
+  const tipoBotao = document.querySelector(".tipos button.active");
+  const tipo = tipoBotao
+    ? tipoBotao.innerText.replace(/\n/g, " ")
+    : "Marmita";
 
-  const mensagem =
-    `🍽️ *PEDIDO - GALETERIA E MARMITARIA SANTHIAGO*%0A%0A` +
-    `🥡 *Tipo:* ${tipo}%0A` +
-    `🍴 *Itens:*%0A` +
-    itens.map(item => `• ${item}`).join("%0A") +
-    `%0A%0A💰 *Total: R$ ${preco.toFixed(2).replace(".", ",")}*`;
+  const texto =
+    "🍽️ PEDIDO - GALETERIA E MARMITARIA SANTHIAGO\n\n" +
+    "🥡 Tipo: " + tipo + "\n\n" +
+    "🍴 Itens:\n" +
+    itens.map(item => "• " + item).join("\n") +
+    "\n\n💰 Total: R$ " +
+    preco.toFixed(2).replace(".", ",");
 
   const numero = "5585998577729";
 
-  const url = `https://wa.me/${numero}?text=${mensagem}`;
+  const link =
+    "https://wa.me/" +
+    numero +
+    "?text=" +
+    encodeURIComponent(texto);
 
-  window.open(url, "_blank");
+  window.location.href = link;
 });
 
 atualizarPedido();
