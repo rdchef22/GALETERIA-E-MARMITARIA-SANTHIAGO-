@@ -244,3 +244,125 @@ footer {
     font-size: 18px;
   }
 }
+/* ===== MENU E INÍCIO ===== */
+
+.menu {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.links {
+  display: flex;
+  gap: 8px;
+}
+
+.links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 9px 12px;
+  border-radius: 10px;
+  transition: 0.2s;
+}
+
+.links a:hover {
+  background: #ffffff22;
+}
+
+.hero {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 {
+  margin-top: 16px;
+}
+
+.hero .data {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.btn-cardapio {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: #f2b632;
+  color: #3d2200;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 5px 12px #0002;
+  transition: 0.2s;
+}
+
+.btn-cardapio:active {
+  transform: scale(0.97);
+}
+
+.contato {
+  margin: 18px 0;
+  padding: 25px 18px;
+  background: #fff;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 5px 18px #0001;
+}
+
+.contato h2 {
+  margin-top: 0;
+  color: #8b1e16;
+}
+
+.contato p {
+  color: #666;
+}
+
+
+/* ===== CELULAR ===== */
+
+@media (max-width: 600px) {
+
+  .menu {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .logo {
+    font-size: 17px;
+  }
+
+  .links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+  }
+
+  .links a {
+    text-align: center;
+    font-size: 12px;
+    padding: 9px 3px;
+    background: #ffffff18;
+  }
+
+  .hero h1 {
+    font-size: 31px;
+  }
+
+  .btn-cardapio {
+    width: 100%;
+    text-align: center;
+    padding: 16px;
+  }
+}
