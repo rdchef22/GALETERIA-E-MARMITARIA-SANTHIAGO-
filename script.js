@@ -24,7 +24,6 @@ function atualizarPedido() {
 
 botoesTipo.forEach(botao => {
   botao.addEventListener("click", () => {
-
     botoesTipo.forEach(item => {
       item.classList.remove("active");
     });
@@ -42,7 +41,6 @@ ingredientes.forEach(item => {
 });
 
 botaoPedir.addEventListener("click", () => {
-
   const itens = [...document.querySelectorAll('input[type="checkbox"]:checked')]
     .map(item => item.value);
 
@@ -51,13 +49,22 @@ botaoPedir.addEventListener("click", () => {
     return;
   }
 
-  alert(
-    "Pedido montado com sucesso! 🍽️\n\n" +
-    "Itens:\n" +
-    itens.join("\n") +
-    "\n\nTotal: R$ " +
-    preco.toFixed(2).replace(".", ",")
-  );
+  const tipo = document.querySelector(".tipos button.active").textContent
+    .replace(/\s+/g, " ")
+    .trim();
+
+  const mensagem =
+    `🍽️ *PEDIDO - GALETERIA E MARMITARIA SANTHIAGO*%0A%0A` +
+    `🥡 *Tipo:* ${tipo}%0A` +
+    `🍴 *Itens:*%0A` +
+    itens.map(item => `• ${item}`).join("%0A") +
+    `%0A%0A💰 *Total: R$ ${preco.toFixed(2).replace(".", ",")}*`;
+
+  const numero = "5585998577729";
+
+  const url = `https://wa.me/${numero}?text=${mensagem}`;
+
+  window.open(url, "_blank");
 });
 
 atualizarPedido();
