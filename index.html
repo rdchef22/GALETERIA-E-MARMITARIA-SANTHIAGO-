@@ -1,164 +1,246 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galeteria e Marmitaria Santhiago</title>
-  <link rel="stylesheet" href="style.css?v=2">
-</head>
+* {
+  box-sizing: border-box;
+}
 
-<body>
+html {
+  scroll-behavior: smooth;
+}
 
-<header id="inicio">
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f7f3ed;
+  color: #292929;
+  -webkit-tap-highlight-color: transparent;
+}
 
-  <nav class="menu">
-    <div class="logo">🍽️ SANTHIAGO</div>
+/* CABEÇALHO */
+header {
+  background: linear-gradient(145deg, #8b1e16, #b52a1f);
+  color: #fff;
+  text-align: center;
+  padding: 28px 18px 45px;
+  border-radius: 0 0 32px 32px;
+  box-shadow: 0 6px 25px #0004;
+  animation: aparecer 0.7s ease;
+}
 
-    <div class="links">
-      <a href="#inicio">Início</a>
-      <a href="#cardapio">Cardápio</a>
-      <a href="#pedido">Meu pedido</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </nav>
+.menu {
+  max-width: 1000px;
+  margin: 0 auto 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-  <div class="hero">
-    <div class="tag">🍽️ SABOR CASEIRO</div>
+.logo {
+  font-size: 18px;
+  font-weight: 900;
+  animation: deslizarDireita 0.7s ease;
+}
 
-    <h1>Galeteria e<br>Marmitaria Santhiago</h1>
+.links {
+  display: flex;
+  gap: 8px;
+}
 
-    <p>Comida caseira, saborosa e feita com carinho.</p>
+.links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 9px 12px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
 
-    <p class="data">
-      Cardápio de hoje • Quinta-feira, 24 de setembro de 2026
-    </p>
+.links a:hover {
+  background: #ffffff22;
+  transform: translateY(-2px);
+}
 
-    <a class="btn-cardapio" href="#cardapio">
-      Ver cardápio 🍽️
-    </a>
-  </div>
+/* HERO */
+.hero {
+  max-width: 850px;
+  margin: auto;
+}
 
-</header>
+.tag {
+  display: inline-block;
+  background: #f2b632;
+  color: #3d2200;
+  font-weight: 800;
+  padding: 8px 15px;
+  border-radius: 999px;
+  font-size: 14px;
+  animation: flutuar 2.5s ease-in-out infinite;
+}
 
-<main>
+h1 {
+  font-size: clamp(28px, 8vw, 44px);
+  line-height: 1.05;
+  margin: 16px 0 10px;
+  animation: subir 0.8s ease;
+}
 
-  <section class="prices">
+header p {
+  margin: 0;
+  opacity: 0.95;
+  font-size: 15px;
+}
 
-    <div>
-      🥡
-      <span>Marmita</span>
-      <b>R$ 18,00</b>
-    </div>
+.hero .data {
+  margin-top: 10px;
+  font-size: 14px;
+  opacity: 0.85;
+}
 
-    <div>
-      🍛
-      <span>Self-Service</span>
-      <b>R$ 20,00</b>
-    </div>
+.btn-cardapio {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  background: #f2b632;
+  color: #3d2200;
+  text-decoration: none;
+  font-weight: 900;
+  box-shadow: 0 6px 15px #0003;
+  transition: 0.25s;
+}
 
-  </section>
+.btn-cardapio:hover {
+  transform: translateY(-3px) scale(1.03);
+}
 
+.btn-cardapio:active {
+  transform: scale(0.96);
+}
 
-  <section id="cardapio">
+/* CONTEÚDO */
+main {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+  padding: 16px;
+}
 
-    <h2>🔥 Opções do dia</h2>
+main > section {
+  animation: subir 0.7s ease both;
+}
 
-    <div class="card">
-      <h3>🍽️ Guarnições</h3>
+/* PREÇOS */
+.prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: -8px;
+}
 
-      <label><input type="checkbox" value="Baião"> Baião</label>
-      <label><input type="checkbox" value="Arroz branco"> Arroz branco</label>
-      <label><input type="checkbox" value="Feijão de corda"> Feijão de corda</label>
-      <label><input type="checkbox" value="Feijão preto"> Feijão preto</label>
-      <label><input type="checkbox" value="Macarrão"> Macarrão</label>
-      <label><input type="checkbox" value="Farofa"> Farofa</label>
-      <label><input type="checkbox" value="Cuscuz"> Cuscuz</label>
-    </div>
+.prices div {
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 18px #0001;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2px 10px;
+  align-items: center;
+  font-size: 28px;
+  transition: 0.3s;
+}
 
+.prices div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px #0002;
+}
 
-    <div class="card">
-      <h3>🥗 Saladas</h3>
+.prices span {
+  font-size: 15px;
+  font-weight: 700;
+}
 
-      <label><input type="checkbox" value="Vinagrete"> Vinagrete</label>
-      <label><input type="checkbox" value="Salada de maionese"> Salada de maionese</label>
-      <label><input type="checkbox" value="Salada de repolho"> Salada de repolho</label>
-    </div>
+.prices b {
+  grid-column: 2;
+  color: #8b1e16;
+  font-size: 21px;
+}
 
+/* CARDÁPIO */
+#cardapio h2 {
+  margin-top: 28px;
+}
 
-    <div class="card">
-      <h3>🍖 Proteínas</h3>
+.card {
+  margin: 14px 0;
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 18px #0001;
+  transition: 0.3s;
+}
 
-      <label><input type="checkbox" value="Frango ao molho"> Frango ao molho</label>
-      <label><input type="checkbox" value="Bisteca de porco ao molho"> Bisteca de porco ao molho</label>
-      <label><input type="checkbox" value="Carne moída"> Carne moída</label>
-      <label><input type="checkbox" value="Peixe frito"> Peixe frito</label>
-      <label><input type="checkbox" value="Strogonoff de frango"> Strogonoff de frango</label>
-      <label><input type="checkbox" value="Ovo frito"> Ovo frito</label>
-      <label><input type="checkbox" value="Frango assado"> Frango assado</label>
-      <label><input type="checkbox" value="Linguiça assada"> Linguiça assada</label>
-      <label><input type="checkbox" value="Bisteca suína assada"> Bisteca suína assada</label>
-    </div>
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px #0002;
+}
 
-  </section>
+.card h3 {
+  margin: 0 0 14px;
+  color: #8b1e16;
+  font-size: 20px;
+}
 
+.card label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 48px;
+  padding: 11px 12px;
+  margin: 4px 0;
+  background: #faf8f5;
+  border: 1px solid #eee7df;
+  border-radius: 13px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
 
-  <section class="pedido" id="pedido">
+.card label:hover {
+  background: #fff1ed;
+  border-color: #d99a91;
+  transform: translateX(4px);
+}
 
-    <h2>🛒 Monte seu pedido</h2>
+.card label:active {
+  transform: scale(0.98);
+}
 
-    <div class="tipos">
+.card input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  accent-color: #8b1e16;
+}
 
-      <button class="active" data-preco="18">
-        Marmita<br>
-        <small>R$ 18,00</small>
-      </button>
+/* PEDIDO */
+.pedido {
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 18px;
+  box-shadow: 0 5px 18px #0001;
+}
 
-      <button data-preco="20">
-        Self-Service<br>
-        <small>R$ 20,00</small>
-      </button>
+.pedido h2 {
+  color: #8b1e16;
+  margin-top: 0;
+}
 
-    </div>
+.tipos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
 
-    <p id="selecionados">
-      Nenhuma opção selecionada.
-    </p>
-
-    <div class="total">
-      Total
-      <strong id="total">R$ 18,00</strong>
-    </div>
-
-    <button class="pedir" id="pedir">
-      Fazer pedido
-    </button>
-
-  </section>
-
-
-  <section class="contato" id="contato">
-
-    <h2>📞 Fale com a gente</h2>
-
-    <p>
-      Entre em contato com a Galeteria e Marmitaria Santhiago.
-    </p>
-
-    <a href="#pedido" class="btn-cardapio">
-      Fazer meu pedido 🍽️
-    </a>
-
-  </section>
-
-</main>
-
-
-<footer>
-  Galeteria e Marmitaria Santhiago
-</footer>
-
-
-<script src="script.js?v=4"></script>
-
-</body>
-</html>
+.tipos button {
+  min-height: 52
