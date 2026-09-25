@@ -14,10 +14,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-/* =========================
-   CABEÇALHO
-========================= */
-
+/* CABEÇALHO */
 header {
   background: linear-gradient(145deg, #8b1e16, #b52a1f);
   color: #fff;
@@ -62,10 +59,7 @@ header {
   transform: translateY(-2px);
 }
 
-/* =========================
-   HERO
-========================= */
-
+/* HERO */
 .hero {
   max-width: 850px;
   margin: auto;
@@ -116,17 +110,13 @@ header p {
 
 .btn-cardapio:hover {
   transform: translateY(-3px) scale(1.03);
-  box-shadow: 0 9px 20px #0004;
 }
 
 .btn-cardapio:active {
   transform: scale(0.96);
 }
 
-/* =========================
-   CONTEÚDO
-========================= */
-
+/* CONTEÚDO */
 main {
   width: 100%;
   max-width: 850px;
@@ -138,10 +128,7 @@ main > section {
   animation: subir 0.7s ease both;
 }
 
-/* =========================
-   PREÇOS
-========================= */
-
+/* PREÇOS */
 .prices {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,7 +147,6 @@ main > section {
   align-items: center;
   font-size: 28px;
   transition: 0.3s;
-  animation: subir 0.8s ease;
 }
 
 .prices div:hover {
@@ -179,13 +165,9 @@ main > section {
   font-size: 21px;
 }
 
-/* =========================
-   CARDÁPIO
-========================= */
-
+/* CARDÁPIO */
 #cardapio h2 {
   margin-top: 28px;
-  animation: deslizarEsquerda 0.7s ease;
 }
 
 .card {
@@ -240,10 +222,7 @@ main > section {
   accent-color: #8b1e16;
 }
 
-/* =========================
-   PEDIDO
-========================= */
-
+/* PEDIDO */
 .pedido {
   margin-top: 20px;
   background: #fff;
@@ -264,67 +243,4 @@ main > section {
 }
 
 .tipos button {
-  min-height: 52px;
-  border: 2px solid #ddd;
-  background: #fff;
-  border-radius: 14px;
-  padding: 13px;
-  font-weight: 800;
-  font-size: 15px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-.tipos button:hover {
-  transform: translateY(-3px);
-  border-color: #8b1e16;
-}
-
-.tipos button:active {
-  transform: scale(0.96);
-}
-
-.tipos button.active {
-  border-color: #8b1e16;
-  background: #fff2ef;
-  color: #8b1e16;
-  box-shadow: 0 4px 12px #8b1e1625;
-}
-
-#selecionados {
-  min-height: 25px;
-  line-height: 1.6;
-}
-
-.total {
-  border-top: 1px solid #eee;
-  margin-top: 16px;
-  padding: 15px 0;
-  font-size: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.total strong {
-  color: #8b1e16;
-  font-size: 23px;
-  transition: 0.2s;
-}
-
-/* =========================
-   BOTÃO WHATSAPP
-========================= */
-
-.pedir {
-  width: 100%;
-  min-height: 58px;
-  border: 0;
-  border-radius: 15px;
-  padding: 16px;
-  background: #8b1e16;
-  color: #fff;
-  font-size: 17px;
-  font-weight: 800;
-  cursor: pointer;
-  box-shadow: 0 6
+  min-height: 52
