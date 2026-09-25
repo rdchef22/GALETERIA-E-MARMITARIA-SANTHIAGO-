@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santhiago | Galeteria e Marmitaria</title>
+<meta name="description" content="Galeteria e Marmitaria Santhiago - Comida caseira e saborosa.">
+<link rel="stylesheet" href="style.css?v=6">
+<style>
+/* Ajustes complementares do sistema de pedidos */
+.pedido-form{display:grid;gap:10px;margin-top:15px}
+.pedido-form input,.pedido-form textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font:inherit}
+.pedido-form textarea{min-height:80px;resize:vertical}
+.selecionados-lista{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
+.item-selecionado{background:#f3f3f3;border-radius:20px;padding:7px 10px;font-size:14px}
+.pedido-aviso{font-size:13px;color:#666;margin-top:8px}
+</style>
+</head>
+<body>
+
+<header id="inicio">
+  <nav class="menu">
+    <div class="logo">🍽️ SANTHIAGO</div>
+    <div class="links">
+      <a href="#inicio">Início</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#pedido">Pedido</a>
+      <a href="#contato">Contato</a>
+    </div>
+  </nav>
+  <div class="localizacao">📍 Faça seu pedido pelo WhatsApp</div>
+</header>
+
+<main>
+
+<section class="banner">
+  <div class="banner-text">
+    <span class="banner-tag">🔥 CARDÁPIO DE HOJE</span>
+    <h1>Comida caseira<br>do jeito que você gosta! 😋</h1>
+    <p>Sabor, qualidade e aquele tempero especial da Santhiago.</p>
+    <a href="#cardapio" class="banner-btn">Ver cardápio 🍽️</a>
+  </div>
+  <div class="banner-emoji">🍗</div>
+</section>
+
+<section class="precos">
+  <div class="preco-card"><span class="preco-icon">🥡</span><div><small>Marmita</small><strong>R$ 18,00</strong></div></div>
+  <div class="preco-card"><span class="preco-icon">🍛</span><div><small>Self-Service</small><strong>R$ 20,00</strong></div></div>
+</section>
+
+<section class="categorias">
+  <h2>O que você quer comer? 😋</h2>
+  <div class="categorias-lista">
+    <a href="#guarnicoes"><span>🍚</span><small>Guarnições</small></a>
+    <a href="#saladas"><span>🥗</span><small>Saladas</small></a>
+    <a href="#proteinas"><span>🍗</span><small>Proteínas</small></a>
+    <a href="#pedido"><span>🛒</span><small>Meu pedido</small></a>
+  </div>
+</section>
+
+<section id="cardapio">
+  <div class="titulo-secao">
+    <div><span>🍽️</span><div><h2>Cardápio de hoje</h2><p>Escolha suas opções favoritas</p></div></div>
+  </div>
+
+  <div class="card" id="guarnicoes">
+    <h3>🍚 Guarnições</h3>
+    <label><input type="checkbox" value="Baião"><span>Baião</span><b>+</b></label>
+    <label><input type="checkbox" value="Arroz branco"><span>Arroz branco</span><b>+</b></label>
+    <label><input type="checkbox" value="Feijão de corda"><span>Feijão de corda</span><b>+</b></label>
+    <label><input type="checkbox" value="Feijão preto"><span>Feijão preto</span><b>+</b></label>
+    <label><input type="checkbox" value="Macarrão"><span>Macarrão</span><b>+</b></label>
+    <label><input type="checkbox" value="Farofa"><span>Farofa</span><b>+</b></label>
+    <label><input type="checkbox" value="Cuscuz"><span>Cuscuz</span><b>+</b></label>
+  </div>
+
+  <div class="card" id="saladas">
+    <h3>🥗 Saladas</h3>
+    <label><input type="checkbox" value="Vinagrete"><span>Vinagrete</span><b>+</b></label>
+    <label><input type="checkbox" value="Salada de maionese"><span>Salada de maionese</span><b>+</b></label>
+    <label><input type="checkbox" value="Salada de repolho"><span>Salada de repolho</span><b>+</b></label>
+  </div>
+
+  <div class="card" id="proteinas">
+    <h3>🍗 Proteínas</h3>
+    <label><input type="checkbox" value="Frango ao molho"><span>Frango ao molho</span><b>+</b></label>
+    <label><input type="checkbox" value="Bisteca de porco ao molho"><span>Bisteca de porco ao molho</span><b>+</b></label>
+    <label><input type="checkbox" value="Carne moída"><span>Carne moída</span><b>+</b></label>
+    <label><input type="checkbox" value="Peixe frito"><span>Peixe frito</span><b>+</b></label>
+    <label><input type="checkbox" value="Strogonoff de frango"><span>Strogonoff de frango</span><b>+</b></label>
+    <label><input type="checkbox" value="Ovo frito"><span>Ovo frito</span><b>+</b></label>
+    <label><input type="checkbox" value="Frango assado"><span>Frango assado</span><b>+</b></label>
+    <label><input type="checkbox" value="Linguiça assada"><span>Linguiça assada</span><b>+</b></label>
+  </div>
+</section>
+
+<section class="pedido" id="pedido">
+  <div class="pedido-topo">
+    <span class="pedido-icone">🛒</span>
+    <div><h2>Meu pedido</h2><p>Confira seu pedido antes de enviar</p></div>
+  </div>
+
+  <div class="tipos">
+    <button type="button" class="active" data-tipo="Marmita" data-preco="18">🥡 <span>Marmita<small>R$ 18,00</small></span></button>
+    <button type="button" data-tipo="Self-Service" data-preco="20">🍛 <span>Self-Service<small>R$ 20,00</small></span></button>
+  </div>
+
+  <div class="resumo">
+    <h3>🍽️ Itens escolhidos</h3>
+    <div id="selecionados">Nenhuma opção selecionada.</div>
+    <div class="total"><span>Total</span><strong id="total">R$ 18,00</strong></div>
+  </div>
+
+  <div class="pedido-form">
+    <input id="clienteNome" type="text" placeholder="Seu nome" autocomplete="name">
+    <input id="clienteTelefone" type="tel" placeholder="Seu telefone">
+    <textarea id="observacoes" placeholder="Observações do pedido (opcional)"></textarea>
+  </div>
+
+  <button class="pedir" id="pedir" type="button">📲 Fazer pedido pelo WhatsApp</button>
+  <p class="pedido-aviso">Ao enviar, seu pedido também ficará registrado no painel administrativo deste dispositivo.</p>
+</section>
+
+<section id="contato" class="card" style="margin-top:20px">
+  <h3>📞 Contato</h3>
+  <p>Faça seu pedido pelo WhatsApp.</p>
+</section>
+
+</main>
+
+<script>
+const WHATSAPP = localStorage.getItem("santhiagoWhats") || "5585999999999";
+
+let tipoPedido = "Marmita";
+let preco = 18;
+
+const botoesTipo = document.querySelectorAll(".tipos button");
+const checks = document.querySelectorAll('#cardapio input[type="checkbox"]');
+const selecionados = document.getElementById("selecionados");
+const totalEl = document.getElementById("total");
+
+function moeda(v){
+  return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
+}
+
+function itensSelecionados(){
+  return [...checks].filter(c => c.checked).map(c => c.value);
+}
+
+function atualizarPedido(){
+  const itens = itensSelecionados();
+  selecionados.innerHTML = itens.length
+    ? '<div class="selecionados-lista">' + itens.map(i => `<span class="item-selecionado">✓ ${i}</span>`).join("") + '</div>'
+    : "Nenhuma opção selecionada.";
+  totalEl.textContent = moeda(preco);
+}
+
+botoesTipo.forEach(botao => {
+  botao.addEventListener("click", () => {
+    botoesTipo.forEach(b => b.classList.remove("active"));
+    botao.classList.add("active");
+    tipoPedido = botao.dataset.tipo;
+    preco = Number(botao.dataset.preco);
+    atualizarPedido();
+  });
+});
+
+checks.forEach(c => c.addEventListener("change", atualizarPedido));
+
+document.getElementById("pedir").addEventListener("click", () => {
+  const nome = document.getElementById("clienteNome").value.trim();
+  const telefone = document.getElementById("clienteTelefone").value.trim();
+  const observacoes = document.getElementById("observacoes").value.trim();
+  const itens = itensSelecionados();
+
+  if(!nome){
+    alert("Digite seu nome para continuar.");
+    document.getElementById("clienteNome").focus();
+    return;
+  }
+
+  if(!telefone){
+    alert("Digite seu telefone para continuar.");
+    document.getElementById("clienteTelefone").focus();
+    return;
+  }
+
+  if(!itens.length){
+    alert("Escolha pelo menos uma opção do cardápio.");
+    return;
+  }
+
+  const pedido = {
+    id: Date.now(),
+    cliente: nome,
+    telefone: telefone,
+    tipo: tipoPedido,
+    itens: itens,
+    observacoes: observacoes,
+    total: preco,
+    status: "Novo",
+    data: new Date().toLocaleString("pt-BR")
+  };
+
+  const pedidos = JSON.parse(localStorage.getItem("santhiagoPedidos") || "[]");
+  pedidos.push(pedido);
+  localStorage.setItem("santhiagoPedidos", JSON.stringify(pedidos));
+
+  const mensagem =
+`🍽️ *NOVO PEDIDO - SANTHIAGO*
+
+👤 Cliente: ${nome}
+📱 Telefone: ${telefone}
+
+🥡 Tipo: ${tipoPedido}
+
+🍽️ *Itens:*
+${itens.map(i => "• " + i).join("\n")}
+
+💰 *Total: ${moeda(preco)}*
+${observacoes ? "\n📝 Observação: " + observacoes : ""}
+
+📦 Status: Novo`;
+
+  const url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensagem);
+  window.open(url, "_blank");
+});
+
+atualizarPedido();
+</script>
+</body>
+</html>
