@@ -61,7 +61,7 @@ botaoPedir.addEventListener("click", () => {
     "\n\n💰 Total: R$ " +
     preco.toFixed(2).replace(".", ",");
 
-  const numero = "5585997518122";
+  const numero = "5585998577729";
 
   const link =
     "https://wa.me/" +
