@@ -8,211 +8,269 @@ html {
 
 body {
   margin: 0;
+  padding-bottom: 90px;
   font-family: Arial, sans-serif;
   background: #f7f3ed;
   color: #292929;
-  -webkit-tap-highlight-color: transparent;
 }
 
-/* CABEÇALHO */
+/* ================= HEADER ================= */
+
 header {
   background: linear-gradient(145deg, #8b1e16, #b52a1f);
-  color: #fff;
-  text-align: center;
-  padding: 28px 18px 45px;
-  border-radius: 0 0 32px 32px;
-  box-shadow: 0 6px 25px #0004;
-  animation: aparecer 0.7s ease;
+  color: white;
+  padding: 18px 16px 28px;
+  border-radius: 0 0 28px 28px;
+  box-shadow: 0 5px 20px #0003;
 }
 
 .menu {
-  max-width: 1000px;
-  margin: 0 auto 25px;
+  max-width: 900px;
+  margin: auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 15px;
 }
 
 .logo {
   font-size: 18px;
   font-weight: 900;
-  animation: deslizarDireita 0.7s ease;
 }
 
 .links {
   display: flex;
-  gap: 8px;
+  gap: 5px;
 }
 
 .links a {
-  color: #fff;
+  color: white;
   text-decoration: none;
-  font-weight: 700;
-  padding: 9px 12px;
-  border-radius: 10px;
-  transition: 0.25s;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 9px;
+  border-radius: 9px;
 }
 
 .links a:hover {
   background: #ffffff22;
-  transform: translateY(-2px);
 }
 
-/* HERO */
-.hero {
-  max-width: 850px;
-  margin: auto;
+.localizacao {
+  max-width: 900px;
+  margin: 18px auto 0;
+  padding: 10px 13px;
+  background: #ffffff18;
+  border-radius: 12px;
+  font-size: 13px;
 }
 
-.tag {
-  display: inline-block;
-  background: #f2b632;
-  color: #3d2200;
-  font-weight: 800;
-  padding: 8px 15px;
-  border-radius: 999px;
-  font-size: 14px;
-  animation: flutuar 2.5s ease-in-out infinite;
-}
+/* ================= MAIN ================= */
 
-h1 {
-  font-size: clamp(28px, 8vw, 44px);
-  line-height: 1.05;
-  margin: 16px 0 10px;
-  animation: subir 0.8s ease;
-}
-
-header p {
-  margin: 0;
-  opacity: 0.95;
-  font-size: 15px;
-}
-
-.hero .data {
-  margin-top: 10px;
-  font-size: 14px;
-  opacity: 0.85;
-}
-
-.btn-cardapio {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 22px;
-  border-radius: 14px;
-  background: #f2b632;
-  color: #3d2200;
-  text-decoration: none;
-  font-weight: 900;
-  box-shadow: 0 6px 15px #0003;
-  transition: 0.25s;
-}
-
-.btn-cardapio:hover {
-  transform: translateY(-3px) scale(1.03);
-}
-
-.btn-cardapio:active {
-  transform: scale(0.96);
-}
-
-/* CONTEÚDO */
 main {
   width: 100%;
   max-width: 850px;
   margin: auto;
-  padding: 16px;
+  padding: 14px;
 }
 
-main > section {
-  animation: subir 0.7s ease both;
+/* ================= BANNER ================= */
+
+.banner {
+  margin-top: -5px;
+  padding: 25px 20px;
+  min-height: 210px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #fff8e8, #ffe5c5);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 5px 18px #0001;
 }
 
-/* PREÇOS */
-.prices {
+.banner-text {
+  max-width: 600px;
+}
+
+.banner-tag {
+  display: inline-block;
+  background: #f2b632;
+  color: #432700;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.banner h1 {
+  margin: 12px 0 8px;
+  color: #8b1e16;
+  font-size: clamp(27px, 7vw, 40px);
+  line-height: 1.05;
+}
+
+.banner p {
+  margin: 0;
+  color: #666;
+  line-height: 1.4;
+}
+
+.banner-btn {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #8b1e16;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.banner-emoji {
+  font-size: 85px;
+  animation: flutuar 2.5s infinite ease-in-out;
+}
+
+/* ================= PREÇOS ================= */
+
+.precos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: -8px;
+  gap: 10px;
+  margin: 12px 0;
 }
 
-.prices div {
-  background: #fff;
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: 0 5px 18px #0001;
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2px 10px;
+.preco-card {
+  background: white;
+  border-radius: 17px;
+  padding: 14px;
+  display: flex;
   align-items: center;
-  font-size: 28px;
-  transition: 0.3s;
+  gap: 11px;
+  box-shadow: 0 4px 15px #0001;
 }
 
-.prices div:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px #0002;
+.preco-icon {
+  font-size: 30px;
 }
 
-.prices span {
-  font-size: 15px;
-  font-weight: 700;
+.preco-card small {
+  display: block;
+  color: #777;
+  font-size: 12px;
 }
 
-.prices b {
-  grid-column: 2;
+.preco-card strong {
+  display: block;
+  margin-top: 3px;
   color: #8b1e16;
-  font-size: 21px;
+  font-size: 19px;
 }
 
-/* CARDÁPIO */
-#cardapio h2 {
-  margin-top: 28px;
+/* ================= CATEGORIAS ================= */
+
+.categorias {
+  margin: 22px 0;
 }
+
+.categorias h2 {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.categorias-lista {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+}
+
+.categorias-lista::-webkit-scrollbar {
+  display: none;
+}
+
+.categorias-lista a {
+  min-width: 90px;
+  background: white;
+  border-radius: 16px;
+  padding: 12px 8px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+  box-shadow: 0 4px 12px #0001;
+}
+
+.categorias-lista span {
+  display: block;
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.categorias-lista small {
+  font-weight: bold;
+  font-size: 11px;
+}
+
+/* ================= TÍTULOS ================= */
+
+.titulo-secao {
+  margin: 25px 0 12px;
+}
+
+.titulo-secao > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.titulo-secao > div > span {
+  font-size: 30px;
+}
+
+.titulo-secao h2 {
+  margin: 0;
+  color: #8b1e16;
+  font-size: 22px;
+}
+
+.titulo-secao p {
+  margin: 3px 0 0;
+  color: #777;
+  font-size: 13px;
+}
+
+/* ================= CARDS ================= */
 
 .card {
-  margin: 14px 0;
-  background: #fff;
-  border-radius: 20px;
-  padding: 18px;
-  box-shadow: 0 5px 18px #0001;
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px #0002;
+  background: white;
+  border-radius: 19px;
+  padding: 16px;
+  margin: 13px 0;
+  box-shadow: 0 4px 16px #0001;
 }
 
 .card h3 {
-  margin: 0 0 14px;
+  margin: 0 0 12px;
   color: #8b1e16;
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .card label {
+  min-height: 48px;
+  margin: 5px 0;
+  padding: 10px 11px;
   display: flex;
   align-items: center;
-  width: 100%;
-  min-height: 48px;
-  padding: 11px 12px;
-  margin: 4px 0;
+  border-radius: 12px;
   background: #faf8f5;
   border: 1px solid #eee7df;
-  border-radius: 13px;
-  font-size: 16px;
   cursor: pointer;
-  transition: 0.2s;
+  transition: .2s;
 }
 
 .card label:hover {
   background: #fff1ed;
-  border-color: #d99a91;
-  transform: translateX(4px);
-}
-
-.card label:active {
-  transform: scale(0.98);
 }
 
 .card input {
@@ -222,25 +280,104 @@ main > section {
   accent-color: #8b1e16;
 }
 
-/* PEDIDO */
+.card label span {
+  flex: 1;
+}
+
+.card label b {
+  color: #8b1e16;
+  font-size: 20px;
+}
+
+/* ================= PEDIDO ================= */
+
 .pedido {
-  margin-top: 20px;
-  background: #fff;
-  border-radius: 20px;
+  background: white;
+  border-radius: 21px;
   padding: 18px;
-  box-shadow: 0 5px 18px #0001;
+  margin-top: 22px;
+  box-shadow: 0 5px 20px #0002;
+}
+
+.pedido-topo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.pedido-icone {
+  font-size: 30px;
 }
 
 .pedido h2 {
+  margin: 0;
   color: #8b1e16;
-  margin-top: 0;
+  font-size: 22px;
+}
+
+.pedido-topo p {
+  margin: 3px 0 0;
+  color: #777;
+  font-size: 13px;
 }
 
 .tipos {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 9px;
+  margin-top: 17px;
 }
 
 .tipos button {
-  min-height: 52
+  border: 2px solid #ddd;
+  background: white;
+  border-radius: 14px;
+  min-height: 62px;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tipos button.active {
+  border-color: #8b1e16;
+  background: #fff2ef;
+  color: #8b1e16;
+}
+
+.tipos button span {
+  text-align: left;
+}
+
+.tipos button small {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+}
+
+.resumo {
+  margin-top: 17px;
+  padding: 13px;
+  background: #faf8f5;
+  border-radius: 13px;
+}
+
+.resumo h3 {
+  margin: 0 0 7px;
+  font-size: 15px;
+}
+
+#selecionados {
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #eee;
+  margin-top: 15
