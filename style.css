@@ -12,9 +12,10 @@ body {
   font-family: Arial, sans-serif;
   background: #f7f3ed;
   color: #292929;
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* ================= HEADER ================= */
+/* ================= CABEÇALHO ================= */
 
 header {
   background: linear-gradient(145deg, #8b1e16, #b52a1f);
@@ -50,10 +51,12 @@ header {
   font-weight: bold;
   padding: 8px 9px;
   border-radius: 9px;
+  transition: 0.2s;
 }
 
 .links a:hover {
   background: #ffffff22;
+  transform: translateY(-2px);
 }
 
 .localizacao {
@@ -65,7 +68,7 @@ header {
   font-size: 13px;
 }
 
-/* ================= MAIN ================= */
+/* ================= CONTEÚDO ================= */
 
 main {
   width: 100%;
@@ -125,6 +128,11 @@ main {
   color: white;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
+}
+
+.banner-btn:hover {
+  transform: translateY(-2px);
 }
 
 .banner-emoji {
@@ -149,6 +157,11 @@ main {
   align-items: center;
   gap: 11px;
   box-shadow: 0 4px 15px #0001;
+  transition: 0.2s;
+}
+
+.preco-card:hover {
+  transform: translateY(-3px);
 }
 
 .preco-icon {
@@ -193,191 +206,4 @@ main {
 .categorias-lista a {
   min-width: 90px;
   background: white;
-  border-radius: 16px;
-  padding: 12px 8px;
-  text-align: center;
-  text-decoration: none;
-  color: #333;
-  box-shadow: 0 4px 12px #0001;
-}
-
-.categorias-lista span {
-  display: block;
-  font-size: 28px;
-  margin-bottom: 5px;
-}
-
-.categorias-lista small {
-  font-weight: bold;
-  font-size: 11px;
-}
-
-/* ================= TÍTULOS ================= */
-
-.titulo-secao {
-  margin: 25px 0 12px;
-}
-
-.titulo-secao > div {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.titulo-secao > div > span {
-  font-size: 30px;
-}
-
-.titulo-secao h2 {
-  margin: 0;
-  color: #8b1e16;
-  font-size: 22px;
-}
-
-.titulo-secao p {
-  margin: 3px 0 0;
-  color: #777;
-  font-size: 13px;
-}
-
-/* ================= CARDS ================= */
-
-.card {
-  background: white;
-  border-radius: 19px;
-  padding: 16px;
-  margin: 13px 0;
-  box-shadow: 0 4px 16px #0001;
-}
-
-.card h3 {
-  margin: 0 0 12px;
-  color: #8b1e16;
-  font-size: 19px;
-}
-
-.card label {
-  min-height: 48px;
-  margin: 5px 0;
-  padding: 10px 11px;
-  display: flex;
-  align-items: center;
-  border-radius: 12px;
-  background: #faf8f5;
-  border: 1px solid #eee7df;
-  cursor: pointer;
-  transition: .2s;
-}
-
-.card label:hover {
-  background: #fff1ed;
-}
-
-.card input {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
-  accent-color: #8b1e16;
-}
-
-.card label span {
-  flex: 1;
-}
-
-.card label b {
-  color: #8b1e16;
-  font-size: 20px;
-}
-
-/* ================= PEDIDO ================= */
-
-.pedido {
-  background: white;
-  border-radius: 21px;
-  padding: 18px;
-  margin-top: 22px;
-  box-shadow: 0 5px 20px #0002;
-}
-
-.pedido-topo {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-}
-
-.pedido-icone {
-  font-size: 30px;
-}
-
-.pedido h2 {
-  margin: 0;
-  color: #8b1e16;
-  font-size: 22px;
-}
-
-.pedido-topo p {
-  margin: 3px 0 0;
-  color: #777;
-  font-size: 13px;
-}
-
-.tipos {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px;
-  margin-top: 17px;
-}
-
-.tipos button {
-  border: 2px solid #ddd;
-  background: white;
-  border-radius: 14px;
-  min-height: 62px;
-  padding: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.tipos button.active {
-  border-color: #8b1e16;
-  background: #fff2ef;
-  color: #8b1e16;
-}
-
-.tipos button span {
-  text-align: left;
-}
-
-.tipos button small {
-  display: block;
-  margin-top: 2px;
-  font-size: 11px;
-}
-
-.resumo {
-  margin-top: 17px;
-  padding: 13px;
-  background: #faf8f5;
-  border-radius: 13px;
-}
-
-.resumo h3 {
-  margin: 0 0 7px;
-  font-size: 15px;
-}
-
-#selecionados {
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #eee;
-  margin-top: 15
+  border
