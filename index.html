@@ -1,232 +1,672 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Santhiago | Galeteria e Marmitaria</title>
-<meta name="description" content="Galeteria e Marmitaria Santhiago - Comida caseira e saborosa.">
-<link rel="stylesheet" href="style.css?v=6">
-<style>
-/* Ajustes complementares do sistema de pedidos */
-.pedido-form{display:grid;gap:10px;margin-top:15px}
-.pedido-form input,.pedido-form textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:10px;font:inherit}
-.pedido-form textarea{min-height:80px;resize:vertical}
-.selecionados-lista{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0}
-.item-selecionado{background:#f3f3f3;border-radius:20px;padding:7px 10px;font-size:14px}
-.pedido-aviso{font-size:13px;color:#666;margin-top:8px}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ff6a00">
+
+  <title>Marmita Flash | Marmitas para entrega</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f7f7;
+      color: #222;
+    }
+
+    header {
+      background: linear-gradient(135deg, #ff6a00, #ff8c00);
+      color: white;
+      padding: 25px 18px 30px;
+      border-radius: 0 0 25px 25px;
+      text-align: center;
+      box-shadow: 0 5px 18px rgba(0,0,0,.15);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .slogan {
+      margin-top: 8px;
+      font-size: 15px;
+      opacity: .95;
+    }
+
+    .hero {
+      padding: 25px 16px 10px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .hero p {
+      color: #666;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 10px 15px 100px;
+    }
+
+    .section {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 15px 0;
+      box-shadow: 0 4px 15px rgba(0,0,0,.07);
+    }
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-info {
+      font-size: 13px;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .sizes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .size {
+      border: 2px solid #eee;
+      border-radius: 15px;
+      padding: 17px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+      background: white;
+    }
+
+    .size strong {
+      display: block;
+      font-size: 22px;
+    }
+
+    .size span {
+      display: block;
+      margin-top: 5px;
+      color: #ff6a00;
+      font-weight: bold;
+    }
+
+    .size.selected {
+      border-color: #ff6a00;
+      background: #fff3e8;
+      transform: translateY(-2px);
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      cursor: pointer;
+      background: #fff;
+    }
+
+    .option input {
+      width: 19px;
+      height: 19px;
+      accent-color: #ff6a00;
+    }
+
+    .option.checked {
+      border-color: #ff6a00;
+      background: #fff6ef;
+    }
+
+    .limit {
+      color: #ff6a00;
+      font-weight: bold;
+    }
+
+    .delivery {
+      display: grid;
+      gap: 10px;
+    }
+
+    .delivery label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px;
+      border: 1px solid #eee;
+      border-radius: 12px;
+    }
+
+    .delivery input {
+      accent-color: #ff6a00;
+    }
+
+    .address {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #ddd;
+      border-radius: 12px;
+      margin-top: 12px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .address:focus {
+      border-color: #ff6a00;
+    }
+
+    .summary {
+      background: #222;
+      color: white;
+      border-radius: 18px;
+      padding: 18px;
+      margin-top: 15px;
+    }
+
+    .summary h2 {
+      margin-bottom: 12px;
+    }
+
+    .summary-line {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      border-top: 1px solid #555;
+      margin-top: 10px;
+      padding-top: 14px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff8c00;
+    }
+
+    .order-button {
+      width: 100%;
+      border: none;
+      background: #25d366;
+      color: white;
+      padding: 17px;
+      border-radius: 15px;
+      font-size: 17px;
+      font-weight: bold;
+      margin-top: 15px;
+      cursor: pointer;
+    }
+
+    .order-button:active {
+      transform: scale(.98);
+    }
+
+    .error {
+      background: #fff0f0;
+      color: #c62828;
+      padding: 12px;
+      border-radius: 12px;
+      margin-top: 12px;
+      display: none;
+      font-size: 14px;
+    }
+
+    .bottom {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: white;
+      border-top: 1px solid #eee;
+      padding: 10px 15px;
+      z-index: 10;
+      text-align: center;
+      box-shadow: 0 -4px 15px rgba(0,0,0,.08);
+    }
+
+    .bottom strong {
+      color: #ff6a00;
+    }
+
+    @media (min-width: 700px) {
+      .container {
+        padding-bottom: 40px;
+      }
+
+      .bottom {
+        display: none;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<header id="inicio">
-  <nav class="menu">
-    <div class="logo">🍽️ SANTHIAGO</div>
-    <div class="links">
-      <a href="#inicio">Início</a>
-      <a href="#cardapio">Cardápio</a>
-      <a href="#pedido">Pedido</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </nav>
-  <div class="localizacao">📍 Faça seu pedido pelo WhatsApp</div>
+<header>
+  <div class="logo">⚡ MARMITA FLASH</div>
+  <div class="slogan">Sua marmita quentinha, rápida e do seu jeito!</div>
 </header>
 
-<main>
-
-<section class="banner">
-  <div class="banner-text">
-    <span class="banner-tag">🔥 CARDÁPIO DE HOJE</span>
-    <h1>Comida caseira<br>do jeito que você gosta! 😋</h1>
-    <p>Sabor, qualidade e aquele tempero especial da Santhiago.</p>
-    <a href="#cardapio" class="banner-btn">Ver cardápio 🍽️</a>
-  </div>
-  <div class="banner-emoji">🍗</div>
+<section class="hero">
+  <h1>Monte sua marmita 🍱</h1>
+  <p>Escolha o tamanho, monte sua combinação e peça pelo WhatsApp.</p>
 </section>
 
-<section class="precos">
-  <div class="preco-card"><span class="preco-icon">🥡</span><div><small>Marmita</small><strong>R$ 18,00</strong></div></div>
-  <div class="preco-card"><span class="preco-icon">🍛</span><div><small>Self-Service</small><strong>R$ 20,00</strong></div></div>
-</section>
+<main class="container">
 
-<section class="categorias">
-  <h2>O que você quer comer? 😋</h2>
-  <div class="categorias-lista">
-    <a href="#guarnicoes"><span>🍚</span><small>Guarnições</small></a>
-    <a href="#saladas"><span>🥗</span><small>Saladas</small></a>
-    <a href="#proteinas"><span>🍗</span><small>Proteínas</small></a>
-    <a href="#pedido"><span>🛒</span><small>Meu pedido</small></a>
-  </div>
-</section>
+  <section class="section">
+    <h2>🍱 Escolha o tamanho</h2>
 
-<section id="cardapio">
-  <div class="titulo-secao">
-    <div><span>🍽️</span><div><h2>Cardápio de hoje</h2><p>Escolha suas opções favoritas</p></div></div>
-  </div>
+    <div class="sizes">
+      <div class="size" data-size="M" data-price="15">
+        <strong>M</strong>
+        <span>R$ 15,00</span>
+      </div>
 
-  <div class="card" id="guarnicoes">
-    <h3>🍚 Guarnições</h3>
-    <label><input type="checkbox" value="Baião"><span>Baião</span><b>+</b></label>
-    <label><input type="checkbox" value="Arroz branco"><span>Arroz branco</span><b>+</b></label>
-    <label><input type="checkbox" value="Feijão de corda"><span>Feijão de corda</span><b>+</b></label>
-    <label><input type="checkbox" value="Feijão preto"><span>Feijão preto</span><b>+</b></label>
-    <label><input type="checkbox" value="Macarrão"><span>Macarrão</span><b>+</b></label>
-    <label><input type="checkbox" value="Farofa"><span>Farofa</span><b>+</b></label>
-    <label><input type="checkbox" value="Cuscuz"><span>Cuscuz</span><b>+</b></label>
-  </div>
+      <div class="size" data-size="G" data-price="18">
+        <strong>G</strong>
+        <span>R$ 18,00</span>
+      </div>
+    </div>
+  </section>
 
-  <div class="card" id="saladas">
-    <h3>🥗 Saladas</h3>
-    <label><input type="checkbox" value="Vinagrete"><span>Vinagrete</span><b>+</b></label>
-    <label><input type="checkbox" value="Salada de maionese"><span>Salada de maionese</span><b>+</b></label>
-    <label><input type="checkbox" value="Salada de repolho"><span>Salada de repolho</span><b>+</b></label>
-  </div>
+  <section class="section">
+    <h2>🍚 Guarnições</h2>
+    <div class="section-info">
+      Escolha de <span class="limit">2 até 4</span>.
+    </div>
 
-  <div class="card" id="proteinas">
-    <h3>🍗 Proteínas</h3>
-    <label><input type="checkbox" value="Frango ao molho"><span>Frango ao molho</span><b>+</b></label>
-    <label><input type="checkbox" value="Bisteca de porco ao molho"><span>Bisteca de porco ao molho</span><b>+</b></label>
-    <label><input type="checkbox" value="Carne moída"><span>Carne moída</span><b>+</b></label>
-    <label><input type="checkbox" value="Peixe frito"><span>Peixe frito</span><b>+</b></label>
-    <label><input type="checkbox" value="Strogonoff de frango"><span>Strogonoff de frango</span><b>+</b></label>
-    <label><input type="checkbox" value="Ovo frito"><span>Ovo frito</span><b>+</b></label>
-    <label><input type="checkbox" value="Frango assado"><span>Frango assado</span><b>+</b></label>
-    <label><input type="checkbox" value="Linguiça assada"><span>Linguiça assada</span><b>+</b></label>
-  </div>
-</section>
+    <div class="options" id="guarnicoes">
 
-<section class="pedido" id="pedido">
-  <div class="pedido-topo">
-    <span class="pedido-icone">🛒</span>
-    <div><h2>Meu pedido</h2><p>Confira seu pedido antes de enviar</p></div>
-  </div>
+      <label class="option"><input type="checkbox" value="Baião">Baião</label>
+      <label class="option"><input type="checkbox" value="Arroz branco">Arroz branco</label>
+      <label class="option"><input type="checkbox" value="Feijão de corda">Feijão de corda</label>
+      <label class="option"><input type="checkbox" value="Feijão preto">Feijão preto</label>
+      <label class="option"><input type="checkbox" value="Macarrão">Macarrão</label>
+      <label class="option"><input type="checkbox" value="Farofa">Farofa</label>
+      <label class="option"><input type="checkbox" value="Cuscuz">Cuscuz</label>
 
-  <div class="tipos">
-    <button type="button" class="active" data-tipo="Marmita" data-preco="18">🥡 <span>Marmita<small>R$ 18,00</small></span></button>
-    <button type="button" data-tipo="Self-Service" data-preco="20">🍛 <span>Self-Service<small>R$ 20,00</small></span></button>
-  </div>
+    </div>
+  </section>
 
-  <div class="resumo">
-    <h3>🍽️ Itens escolhidos</h3>
-    <div id="selecionados">Nenhuma opção selecionada.</div>
-    <div class="total"><span>Total</span><strong id="total">R$ 18,00</strong></div>
-  </div>
+  <section class="section">
+    <h2>🥗 Saladas</h2>
+    <div class="section-info">
+      M: até <span class="limit">1</span> |
+      G: até <span class="limit">2</span>
+    </div>
 
-  <div class="pedido-form">
-    <input id="clienteNome" type="text" placeholder="Seu nome" autocomplete="name">
-    <input id="clienteTelefone" type="tel" placeholder="Seu telefone">
-    <textarea id="observacoes" placeholder="Observações do pedido (opcional)"></textarea>
-  </div>
+    <div class="options" id="saladas">
 
-  <button class="pedir" id="pedir" type="button">📲 Fazer pedido pelo WhatsApp</button>
-  <p class="pedido-aviso">Ao enviar, seu pedido também ficará registrado no painel administrativo deste dispositivo.</p>
-</section>
+      <label class="option"><input type="checkbox" value="Vinagrete">Vinagrete</label>
+      <label class="option"><input type="checkbox" value="Salada de maionese">Salada de maionese</label>
+      <label class="option"><input type="checkbox" value="Salada verde">Salada verde</label>
 
-<section id="contato" class="card" style="margin-top:20px">
-  <h3>📞 Contato</h3>
-  <p>Faça seu pedido pelo WhatsApp.</p>
-</section>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🍖 Proteínas</h2>
+    <div class="section-info">
+      M: até <span class="limit">1</span> |
+      G: até <span class="limit">2</span>
+    </div>
+
+    <div class="options" id="proteinas">
+
+      <label class="option"><input type="checkbox" value="Frango ao molho">Frango ao molho</label>
+      <label class="option"><input type="checkbox" value="Bisteca de porco ao molho">Bisteca de porco ao molho</label>
+      <label class="option"><input type="checkbox" value="Carne moída">Carne moída</label>
+      <label class="option"><input type="checkbox" value="Peixe frito">Peixe frito</label>
+      <label class="option"><input type="checkbox" value="Fígado">Fígado</label>
+      <label class="option"><input type="checkbox" value="Calabresa">Calabresa</label>
+      <label class="option"><input type="checkbox" value="Ovo frito">Ovo frito</label>
+      <label class="option"><input type="checkbox" value="Frango assado">Frango assado</label>
+      <label class="option"><input type="checkbox" value="Linguiça assada">Linguiça assada</label>
+      <label class="option"><input type="checkbox" value="Bisteca suína assada">Bisteca suína assada</label>
+
+    </div>
+
+    <div class="section-info" style="margin-top:12px;">
+      💡 Se escolher apenas uma proteína, ela será considerada como
+      <strong>2 pedaços/porções</strong>.
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🛵 Entrega</h2>
+
+    <div class="delivery">
+
+      <label>
+        <input type="radio" name="delivery" value="3">
+        Perto • R$ 3,00
+      </label>
+
+      <label>
+        <input type="radio" name="delivery" value="0">
+        Longe • taxa a combinar
+      </label>
+
+    </div>
+
+    <input
+      class="address"
+      id="address"
+      type="text"
+      placeholder="Digite seu endereço"
+    >
+
+  </section>
+
+  <div class="error" id="error"></div>
+
+  <section class="summary">
+
+    <h2>🧾 Meu pedido</h2>
+
+    <div class="summary-line">
+      <span>Marmita</span>
+      <span id="sizeSummary">Não escolhida</span>
+    </div>
+
+    <div class="summary-line">
+      <span>Itens escolhidos</span>
+      <span id="itemsSummary">0</span>
+    </div>
+
+    <div class="summary-line">
+      <span>Entrega</span>
+      <span id="deliverySummary">R$ 0,00</span>
+    </div>
+
+    <div class="total">
+      <span>Total</span>
+      <span id="total">R$ 0,00</span>
+    </div>
+
+    <button class="order-button" onclick="sendWhatsApp()">
+      📲 PEDIR PELO WHATSAPP
+    </button>
+
+  </section>
 
 </main>
 
+<div class="bottom">
+  🍱 Marmita Flash • <strong>Peça pelo WhatsApp</strong>
+</div>
+
 <script>
-const WHATSAPP = localStorage.getItem("santhiagoWhats") || "5585999999999";
 
-let tipoPedido = "Marmita";
-let preco = 18;
+  const whatsapp = "5585997518122";
 
-const botoesTipo = document.querySelectorAll(".tipos button");
-const checks = document.querySelectorAll('#cardapio input[type="checkbox"]');
-const selecionados = document.getElementById("selecionados");
-const totalEl = document.getElementById("total");
+  let selectedSize = null;
+  let selectedPrice = 0;
 
-function moeda(v){
-  return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"});
-}
+  const sizes = document.querySelectorAll(".size");
 
-function itensSelecionados(){
-  return [...checks].filter(c => c.checked).map(c => c.value);
-}
+  sizes.forEach(size => {
 
-function atualizarPedido(){
-  const itens = itensSelecionados();
-  selecionados.innerHTML = itens.length
-    ? '<div class="selecionados-lista">' + itens.map(i => `<span class="item-selecionado">✓ ${i}</span>`).join("") + '</div>'
-    : "Nenhuma opção selecionada.";
-  totalEl.textContent = moeda(preco);
-}
+    size.addEventListener("click", () => {
 
-botoesTipo.forEach(botao => {
-  botao.addEventListener("click", () => {
-    botoesTipo.forEach(b => b.classList.remove("active"));
-    botao.classList.add("active");
-    tipoPedido = botao.dataset.tipo;
-    preco = Number(botao.dataset.preco);
-    atualizarPedido();
+      sizes.forEach(s => s.classList.remove("selected"));
+
+      size.classList.add("selected");
+
+      selectedSize = size.dataset.size;
+      selectedPrice = Number(size.dataset.price);
+
+      updateLimits();
+      updateSummary();
+
+    });
+
   });
-});
 
-checks.forEach(c => c.addEventListener("change", atualizarPedido));
+  function updateLimits() {
 
-document.getElementById("pedir").addEventListener("click", () => {
-  const nome = document.getElementById("clienteNome").value.trim();
-  const telefone = document.getElementById("clienteTelefone").value.trim();
-  const observacoes = document.getElementById("observacoes").value.trim();
-  const itens = itensSelecionados();
+    const saladInputs = document.querySelectorAll("#saladas input");
+    const proteinInputs = document.querySelectorAll("#proteinas input");
 
-  if(!nome){
-    alert("Digite seu nome para continuar.");
-    document.getElementById("clienteNome").focus();
-    return;
+    saladInputs.forEach(input => {
+      input.checked = false;
+    });
+
+    proteinInputs.forEach(input => {
+      input.checked = false;
+    });
+
+    document.querySelectorAll(".option").forEach(option => {
+      option.classList.remove("checked");
+    });
+
+    updateSummary();
   }
 
-  if(!telefone){
-    alert("Digite seu telefone para continuar.");
-    document.getElementById("clienteTelefone").focus();
-    return;
+  function setupLimits(containerId, getLimit) {
+
+    const container = document.getElementById(containerId);
+
+    container.addEventListener("change", event => {
+
+      if (!event.target.matches("input")) return;
+
+      const inputs = container.querySelectorAll("input");
+      const checked = container.querySelectorAll("input:checked");
+      const limit = getLimit();
+
+      if (checked.length > limit) {
+        event.target.checked = false;
+        showError(`Você pode escolher no máximo ${limit} opção(ões).`);
+      }
+
+      const option = event.target.closest(".option");
+
+      if (option) {
+        option.classList.toggle("checked", event.target.checked);
+      }
+
+      updateSummary();
+
+    });
+
   }
 
-  if(!itens.length){
-    alert("Escolha pelo menos uma opção do cardápio.");
-    return;
+  setupLimits("guarnicoes", () => 4);
+
+  setupLimits("saladas", () => {
+    return selectedSize === "M" ? 1 : 2;
+  });
+
+  setupLimits("proteinas", () => {
+    return selectedSize === "M" ? 1 : 2;
+  });
+
+  document.querySelectorAll('input[name="delivery"]').forEach(input => {
+
+    input.addEventListener("change", () => {
+      updateSummary();
+    });
+
+  });
+
+  function getChecked(containerId) {
+
+    return [...document.querySelectorAll(
+      `#${containerId} input:checked`
+    )].map(input => input.value);
+
   }
 
-  const pedido = {
-    id: Date.now(),
-    cliente: nome,
-    telefone: telefone,
-    tipo: tipoPedido,
-    itens: itens,
-    observacoes: observacoes,
-    total: preco,
-    status: "Novo",
-    data: new Date().toLocaleString("pt-BR")
-  };
+  function updateSummary() {
 
-  const pedidos = JSON.parse(localStorage.getItem("santhiagoPedidos") || "[]");
-  pedidos.push(pedido);
-  localStorage.setItem("santhiagoPedidos", JSON.stringify(pedidos));
+    const guarnicoes = getChecked("guarnicoes");
+    const saladas = getChecked("saladas");
+    const proteinas = getChecked("proteinas");
 
-  const mensagem =
-`🍽️ *NOVO PEDIDO - SANTHIAGO*
+    const deliveryInput =
+      document.querySelector('input[name="delivery"]:checked');
 
-👤 Cliente: ${nome}
-📱 Telefone: ${telefone}
+    const deliveryPrice =
+      deliveryInput ? Number(deliveryInput.value) : 0;
 
-🥡 Tipo: ${tipoPedido}
+    let total = selectedPrice + deliveryPrice;
 
-🍽️ *Itens:*
-${itens.map(i => "• " + i).join("\n")}
+    document.getElementById("sizeSummary").textContent =
+      selectedSize
+        ? `${selectedSize} • R$ ${selectedPrice.toFixed(2).replace(".", ",")}`
+        : "Não escolhida";
 
-💰 *Total: ${moeda(preco)}*
-${observacoes ? "\n📝 Observação: " + observacoes : ""}
+    document.getElementById("itemsSummary").textContent =
+      guarnicoes.length + saladas.length + proteinas.length;
 
-📦 Status: Novo`;
+    if (!deliveryInput) {
+      document.getElementById("deliverySummary").textContent =
+        "Não escolhida";
+    } else if (deliveryPrice === 0) {
+      document.getElementById("deliverySummary").textContent =
+        "A combinar";
+    } else {
+      document.getElementById("deliverySummary").textContent =
+        "R$ 3,00";
+    }
 
-  const url = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(mensagem);
-  window.open(url, "_blank");
-});
+    document.getElementById("total").textContent =
+      deliveryInput && deliveryPrice === 0
+        ? `R$ ${selectedPrice.toFixed(2).replace(".", ",")} + entrega`
+        : `R$ ${total.toFixed(2).replace(".", ",")}`;
 
-atualizarPedido();
+  }
+
+  function showError(message) {
+
+    const error = document.getElementById("error");
+
+    error.textContent = message;
+    error.style.display = "block";
+
+    setTimeout(() => {
+      error.style.display = "none";
+    }, 3000);
+
+  }
+
+  function sendWhatsApp() {
+
+    const guarnicoes = getChecked("guarnicoes");
+    const saladas = getChecked("saladas");
+    const proteinas = getChecked("proteinas");
+
+    const delivery =
+      document.querySelector('input[name="delivery"]:checked');
+
+    const address =
+      document.getElementById("address").value.trim();
+
+    if (!selectedSize) {
+      showError("Escolha o tamanho da marmita.");
+      return;
+    }
+
+    if (guarnicoes.length < 2) {
+      showError("Escolha pelo menos 2 guarnições.");
+      return;
+    }
+
+    if (!delivery) {
+      showError("Escolha a opção de entrega.");
+      return;
+    }
+
+    if (!address) {
+      showError("Digite seu endereço.");
+      return;
+    }
+
+    if (proteinas.length === 0) {
+      showError("Escolha pelo menos 1 proteína.");
+      return;
+    }
+
+    const deliveryText =
+      Number(delivery.value) === 0
+        ? "Taxa de entrega: A COMBINAR"
+        : "Taxa de entrega: R$ 3,00";
+
+    const total =
+      Number(delivery.value) === 0
+        ? `R$ ${selectedPrice.toFixed(2).replace(".", ",")} + entrega`
+        : `R$ ${(selectedPrice + Number(delivery.value))
+            .toFixed(2)
+            .replace(".", ",")}`;
+
+    const proteinaText =
+      proteinas.length === 1
+        ? `${proteinas[0]} × 2 pedaços/porções`
+        : proteinas.join(", ");
+
+    const message = `
+🍱 *NOVO PEDIDO - MARMITA FLASH* ⚡
+
+📦 *Marmita:* ${selectedSize}
+💰 *Valor:* R$ ${selectedPrice.toFixed(2).replace(".", ",")}
+
+🍚 *Guarnições:*
+${guarnicoes.map(item => `• ${item}`).join("\n")}
+
+🥗 *Saladas:*
+${saladas.length
+  ? saladas.map(item => `• ${item}`).join("\n")
+  : "• Nenhuma"}
+
+🍖 *Proteínas:*
+• ${proteinaText}
+
+🛵 *Entrega:*
+${deliveryText}
+
+📍 *Endereço:*
+${address}
+
+💵 *TOTAL:* ${total}
+    `.trim();
+
+    const url =
+      `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+
+  }
+
 </script>
+
 </body>
 </html>
