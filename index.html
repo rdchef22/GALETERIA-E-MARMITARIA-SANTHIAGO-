@@ -3,663 +3,238 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#ff6a00">
-
-  <title>Marmita Flash | Marmitas para entrega</title>
+  <title>Marmita Flash | Delivery</title>
 
   <style>
     * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f6f6f6;
-  color: #202020;
-  overflow-x: hidden;
-}
-
-/* TOPO */
-
-header {
-  position: relative;
-  overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(255,106,0,.96), rgba(255,140,0,.90)),
-    url("https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 28px 18px 38px;
-  border-radius: 0 0 32px 32px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.18);
-  animation: headerIn .7s ease;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(255,106,0,.72);
-}
-
-header > * {
-  position: relative;
-  z-index: 1;
-}
-
-.logo {
-  font-size: 31px;
-  font-weight: 900;
-  letter-spacing: -1.5px;
-  text-shadow: 0 3px 10px rgba(0,0,0,.18);
-}
-
-.slogan {
-  margin-top: 8px;
-  font-size: 15px;
-  font-weight: 600;
-  opacity: .97;
-}
-
-/* HERO */
-
-.hero {
-  max-width: 600px;
-  margin: -12px auto 0;
-  padding: 30px 18px 12px;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 30px;
-  line-height: 1.1;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  color: #6d6d6d;
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-/* CONTAINER */
-
-.container {
-  max-width: 600px;
-  margin: auto;
-  padding: 8px 15px 110px;
-}
-
-/* CARDS */
-
-.section {
-  background: rgba(255,255,255,.98);
-  border-radius: 22px;
-  padding: 20px;
-  margin: 17px 0;
-  box-shadow: 0 7px 25px rgba(0,0,0,.07);
-  border: 1px solid #eeeeee;
-  animation: cardIn .55s ease both;
-}
-
-.section h2 {
-  font-size: 20px;
-  margin-bottom: 7px;
-}
-
-.section-info {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 14px;
-}
-
-.limit {
-  color: #ff6a00;
-  font-weight: 800;
-}
-
-/* TAMANHOS */
-
-.sizes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 13px;
-}
-
-.size {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid #eeeeee;
-  border-radius: 18px;
-  padding: 20px 10px;
-  text-align: center;
-  cursor: pointer;
-  transition: .25s ease;
-  background: linear-gradient(180deg,#fff,#fafafa);
-}
-
-.size::after {
-  content: "🍱";
-  position: absolute;
-  right: 8px;
-  top: 5px;
-  font-size: 28px;
-  opacity: .12;
-}
-
-.size strong {
-  display: block;
-  font-size: 27px;
-}
-
-.size span {
-  display: block;
-  margin-top: 6px;
-  color: #ff6a00;
-  font-size: 16px;
-  font-weight: 900;
-}
-
-.size:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(255,106,0,.12);
-}
-
-.size.selected {
-  border-color: #ff6a00;
-  background: linear-gradient(145deg,#fff2e6,#ffffff);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(255,106,0,.18);
-}
-
-/* OPÇÕES */
-
-.options {
-  display: grid;
-  gap: 9px;
-}
-
-.option {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 13px;
-  border: 1px solid #eeeeee;
-  border-radius: 14px;
-  cursor: pointer;
-  background: #fff;
-  transition: .2s ease;
-}
-
-.option:hover {
-  border-color: #ffb277;
-  transform: translateX(2px);
-}
-
-.option input {
-  width: 20px;
-  height: 20px;
-  accent-color: #ff6a00;
-}
-
-.option.checked {
-  border-color: #ff6a00;
-  background: #fff5ed;
-  font-weight: 700;
-  box-shadow: inset 3px 0 0 #ff6a00;
-}
-
-/* ENTREGA */
-
-.delivery {
-  display: grid;
-  gap: 10px;
-}
-
-.delivery label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 14px;
-  border: 1px solid #eeeeee;
-  border-radius: 14px;
-  background: #fff;
-  cursor: pointer;
-  transition: .2s ease;
-}
-
-.delivery label:hover {
-  border-color: #ff6a00;
-}
-
-.delivery input {
-  width: 19px;
-  height: 19px;
-  accent-color: #ff6a00;
-}
-
-.address {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #dddddd;
-  border-radius: 14px;
-  margin-top: 12px;
-  font-size: 15px;
-  outline: none;
-  transition: .2s;
-}
-
-.address:focus {
-  border-color: #ff6a00;
-  box-shadow: 0 0 0 3px rgba(255,106,0,.10);
-}
-
-/* RESUMO */
-
-.summary {
-  background:
-    linear-gradient(145deg,#191919,#292929);
-  color: white;
-  border-radius: 23px;
-  padding: 21px;
-  margin-top: 17px;
-  box-shadow: 0 12px 30px rgba(0,0,0,.18);
-}
-
-.summary h2 {
-  margin-bottom: 14px;
-}
-
-.summary-line {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  padding: 7px 0;
-  color: #dddddd;
-  font-size: 14px;
-}
-
-.total {
-  display: flex;
-  justify-content: space-between;
-  border-top: 1px solid #555;
-  margin-top: 11px;
-  padding-top: 15px;
-  font-size: 23px;
-  font-weight: 900;
-  color: #ff8c00;
-}
-
-/* BOTÃO WHATSAPP */
-
-.order-button {
-  width: 100%;
-  border: none;
-  background: linear-gradient(135deg,#19c963,#25d366);
-  color: white;
-  padding: 18px;
-  border-radius: 16px;
-  font-size: 17px;
-  font-weight: 900;
-  margin-top: 17px;
-  cursor: pointer;
-  box-shadow: 0 8px 18px rgba(37,211,102,.25);
-  transition: .2s ease;
-  animation: pulseButton 2.5s infinite;
-}
-
-.order-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(37,211,102,.32);
-}
-
-.order-button:active {
-  transform: scale(.97);
-}
-
-/* ERRO */
-
-.error {
-  background: #fff0f0;
-  color: #c62828;
-  padding: 13px;
-  border-radius: 13px;
-  margin-top: 12px;
-  display: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-/* BARRA INFERIOR */
-
-.bottom {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(255,255,255,.96);
-  backdrop-filter: blur(10px);
-  border-top: 1px solid #eeeeee;
-  padding: 12px 15px;
-  z-index: 10;
-  text-align: center;
-  box-shadow: 0 -5px 20px rgba(0,0,0,.08);
-  font-size: 14px;
-}
-
-.bottom strong {
-  color: #ff6a00;
-}
-
-/* ANIMAÇÕES */
-
-@keyframes headerIn {
-  from {
-    opacity: 0;
-    transform: translateY(-15px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes cardIn {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes pulseButton {
-  0%,100% {
-    box-shadow: 0 8px 18px rgba(37,211,102,.25);
-  }
-
-  50% {
-    box-shadow: 0 8px 28px rgba(37,211,102,.45);
-  }
-}
-
-/* DESKTOP */
-
-@media (min-width: 700px) {
-
-  .container {
-    padding-bottom: 40px;
-  }
-
-  .bottom {
-    display: none;
-  }
-
-  .hero h1 {
-    font-size: 36px;
-  }
-
-}
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f7;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
       color: #222;
+      padding-bottom: 30px;
     }
 
     header {
-      background: linear-gradient(135deg, #ff6a00, #ff8c00);
+      background: linear-gradient(135deg, #ff5b00, #ff9500);
       color: white;
-      padding: 25px 18px 30px;
-      border-radius: 0 0 25px 25px;
-      text-align: center;
-      box-shadow: 0 5px 18px rgba(0,0,0,.15);
+      padding: 30px 20px 35px;
+      border-radius: 0 0 30px 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.15);
     }
 
     .logo {
-      font-size: 30px;
+      font-size: 28px;
       font-weight: 900;
-      letter-spacing: -1px;
     }
 
     .slogan {
       margin-top: 8px;
       font-size: 15px;
-      opacity: .95;
     }
 
-    .hero {
-      padding: 25px 16px 10px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-size: 27px;
-      margin-bottom: 8px;
-    }
-
-    .hero p {
-      color: #666;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
-    .container {
+    main {
       max-width: 600px;
       margin: auto;
-      padding: 10px 15px 100px;
+      padding: 18px;
     }
 
-    .section {
+    .inicio {
+      text-align: center;
+      padding: 28px 20px;
       background: white;
-      border-radius: 18px;
+      border-radius: 25px;
+      margin-top: -10px;
+      box-shadow: 0 5px 20px rgba(0,0,0,.08);
+    }
+
+    .emoji {
+      font-size: 65px;
+      margin-bottom: 10px;
+    }
+
+    .inicio h2 {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .inicio p {
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 22px;
+    }
+
+    .btn-principal {
+      width: 100%;
+      border: none;
+      padding: 17px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #ff5b00, #ff8500);
+      color: white;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 7px 18px rgba(255,91,0,.25);
+    }
+
+    .info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .info div {
+      background: white;
+      padding: 15px 10px;
+      border-radius: 17px;
+      text-align: center;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+      font-size: 13px;
+    }
+
+    .info strong {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    #pedidoArea {
+      display: none;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
       padding: 18px;
-      margin: 15px 0;
+      margin-bottom: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,.07);
     }
 
-    .section h2 {
+    .card h2 {
       font-size: 20px;
       margin-bottom: 14px;
     }
 
-    .section-info {
-      font-size: 13px;
-      color: #777;
-      margin-bottom: 12px;
+    .card h3 {
+      font-size: 17px;
+      margin: 15px 0 10px;
     }
 
-    .sizes {
+    .tipos {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .size {
+    .tipo {
+      padding: 18px 10px;
       border: 2px solid #eee;
-      border-radius: 15px;
-      padding: 17px 10px;
-      text-align: center;
-      cursor: pointer;
-      transition: .2s;
-      background: white;
-    }
-
-    .size strong {
-      display: block;
-      font-size: 22px;
-    }
-
-    .size span {
-      display: block;
-      margin-top: 5px;
-      color: #ff6a00;
-      font-weight: bold;
-    }
-
-    .size.selected {
-      border-color: #ff6a00;
-      background: #fff3e8;
-      transform: translateY(-2px);
-    }
-
-    .options {
-      display: grid;
-      gap: 9px;
-    }
-
-    .option {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      cursor: pointer;
+      border-radius: 16px;
       background: #fff;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 800;
     }
 
-    .option input {
-      width: 19px;
-      height: 19px;
-      accent-color: #ff6a00;
-    }
-
-    .option.checked {
+    .tipo.ativo {
+      background: #fff1e6;
       border-color: #ff6a00;
-      background: #fff6ef;
-    }
-
-    .limit {
       color: #ff6a00;
-      font-weight: bold;
     }
 
-    .delivery {
-      display: grid;
-      gap: 10px;
-    }
-
-    .delivery label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    label {
+      display: block;
+      background: #fafafa;
+      border: 2px solid #eee;
+      border-radius: 13px;
       padding: 13px;
-      border: 1px solid #eee;
-      border-radius: 12px;
+      margin: 8px 0;
+      cursor: pointer;
     }
 
-    .delivery input {
+    input[type="checkbox"],
+    input[type="radio"] {
       accent-color: #ff6a00;
+      margin-right: 8px;
     }
 
-    .address {
+    input[type="text"] {
       width: 100%;
-      padding: 13px;
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      margin-top: 12px;
-      font-size: 15px;
+      padding: 14px;
+      border: 2px solid #eee;
+      border-radius: 13px;
       outline: none;
+      font-size: 15px;
     }
 
-    .address:focus {
+    input[type="text"]:focus {
       border-color: #ff6a00;
     }
 
-    .summary {
-      background: #222;
+    .resumo {
+      background: #202020;
       color: white;
-      border-radius: 18px;
-      padding: 18px;
-      margin-top: 15px;
+      border-radius: 20px;
+      padding: 20px;
     }
 
-    .summary h2 {
-      margin-bottom: 12px;
+    .resumo h2 {
+      color: white;
     }
 
-    .summary-line {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      color: #ddd;
-      font-size: 14px;
+    #total {
+      color: #ff963d;
+      font-size: 24px;
+      font-weight: 900;
+      margin: 12px 0;
     }
 
-    .total {
-      display: flex;
-      justify-content: space-between;
-      border-top: 1px solid #555;
-      margin-top: 10px;
-      padding-top: 14px;
-      font-size: 22px;
-      font-weight: bold;
-      color: #ff8c00;
-    }
-
-    .order-button {
+    #pedir {
       width: 100%;
       border: none;
-      background: #25d366;
-      color: white;
       padding: 17px;
       border-radius: 15px;
+      background: #19b957;
+      color: white;
       font-size: 17px;
-      font-weight: bold;
-      margin-top: 15px;
+      font-weight: 900;
       cursor: pointer;
     }
 
-    .order-button:active {
-      transform: scale(.98);
-    }
-
-    .error {
+    .erro {
       background: #fff0f0;
       color: #c62828;
       padding: 12px;
       border-radius: 12px;
-      margin-top: 12px;
+      margin-top: 10px;
       display: none;
-      font-size: 14px;
     }
 
-    .bottom {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: white;
-      border-top: 1px solid #eee;
-      padding: 10px 15px;
-      z-index: 10;
-      text-align: center;
-      box-shadow: 0 -4px 15px rgba(0,0,0,.08);
-    }
-
-    .bottom strong {
+    .voltar {
+      background: transparent;
+      border: none;
       color: #ff6a00;
+      font-weight: 800;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      color: #777;
+      font-size: 13px;
+      padding: 25px 10px;
     }
 
     @media (min-width: 700px) {
-      .container {
-        padding-bottom: 40px;
-      }
-
-      .bottom {
-        display: none;
+      main {
+        padding: 30px;
       }
     }
   </style>
@@ -672,397 +247,491 @@ header > * {
   <div class="slogan">Sua marmita quentinha, rápida e do seu jeito!</div>
 </header>
 
-<section class="hero">
-  <h1>Monte sua marmita 🍱</h1>
-  <p>Escolha o tamanho, monte sua combinação e peça pelo WhatsApp.</p>
-</section>
+<main>
 
-<main class="container">
+  <!-- TELA INICIAL -->
 
-  <section class="section">
-    <h2>🍱 Escolha o tamanho</h2>
+  <section class="inicio" id="inicio">
 
-    <div class="sizes">
-      <div class="size" data-size="M" data-price="15">
-        <strong>M</strong>
-        <span>R$ 15,00</span>
-      </div>
+    <div class="emoji">🍱</div>
 
-      <div class="size" data-size="G" data-price="18">
-        <strong>G</strong>
-        <span>R$ 18,00</span>
-      </div>
-    </div>
-  </section>
+    <h2>Monte sua marmita!</h2>
 
-  <section class="section">
-    <h2>🍚 Guarnições</h2>
-    <div class="section-info">
-      Escolha de <span class="limit">2 até 4</span>.
-    </div>
+    <p>
+      Escolha o tamanho, monte do seu jeito
+      e peça pelo WhatsApp.
+    </p>
 
-    <div class="options" id="guarnicoes">
-
-      <label class="option"><input type="checkbox" value="Baião">Baião</label>
-      <label class="option"><input type="checkbox" value="Arroz branco">Arroz branco</label>
-      <label class="option"><input type="checkbox" value="Feijão de corda">Feijão de corda</label>
-      <label class="option"><input type="checkbox" value="Feijão preto">Feijão preto</label>
-      <label class="option"><input type="checkbox" value="Macarrão">Macarrão</label>
-      <label class="option"><input type="checkbox" value="Farofa">Farofa</label>
-      <label class="option"><input type="checkbox" value="Cuscuz">Cuscuz</label>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>🥗 Saladas</h2>
-    <div class="section-info">
-      M: até <span class="limit">1</span> |
-      G: até <span class="limit">2</span>
-    </div>
-
-    <div class="options" id="saladas">
-
-      <label class="option"><input type="checkbox" value="Vinagrete">Vinagrete</label>
-      <label class="option"><input type="checkbox" value="Salada de maionese">Salada de maionese</label>
-      <label class="option"><input type="checkbox" value="Salada verde">Salada verde</label>
-
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>🍖 Proteínas</h2>
-    <div class="section-info">
-      M: até <span class="limit">1</span> |
-      G: até <span class="limit">2</span>
-    </div>
-
-    <div class="options" id="proteinas">
-
-      <label class="option"><input type="checkbox" value="Frango ao molho">Frango ao molho</label>
-      <label class="option"><input type="checkbox" value="Bisteca de porco ao molho">Bisteca de porco ao molho</label>
-      <label class="option"><input type="checkbox" value="Carne moída">Carne moída</label>
-      <label class="option"><input type="checkbox" value="Peixe frito">Peixe frito</label>
-      <label class="option"><input type="checkbox" value="Fígado">Fígado</label>
-      <label class="option"><input type="checkbox" value="Calabresa">Calabresa</label>
-      <label class="option"><input type="checkbox" value="Ovo frito">Ovo frito</label>
-      <label class="option"><input type="checkbox" value="Frango assado">Frango assado</label>
-      <label class="option"><input type="checkbox" value="Linguiça assada">Linguiça assada</label>
-      <label class="option"><input type="checkbox" value="Bisteca suína assada">Bisteca suína assada</label>
-
-    </div>
-
-    <div class="section-info" style="margin-top:12px;">
-      💡 Se escolher apenas uma proteína, ela será considerada como
-      <strong>2 pedaços/porções</strong>.
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>🛵 Entrega</h2>
-
-    <div class="delivery">
-
-      <label>
-        <input type="radio" name="delivery" value="3">
-        Perto • R$ 3,00
-      </label>
-
-      <label>
-        <input type="radio" name="delivery" value="0">
-        Longe • taxa a combinar
-      </label>
-
-    </div>
-
-    <input
-      class="address"
-      id="address"
-      type="text"
-      placeholder="Digite seu endereço"
-    >
-
-  </section>
-
-  <div class="error" id="error"></div>
-
-  <section class="summary">
-
-    <h2>🧾 Meu pedido</h2>
-
-    <div class="summary-line">
-      <span>Marmita</span>
-      <span id="sizeSummary">Não escolhida</span>
-    </div>
-
-    <div class="summary-line">
-      <span>Itens escolhidos</span>
-      <span id="itemsSummary">0</span>
-    </div>
-
-    <div class="summary-line">
-      <span>Entrega</span>
-      <span id="deliverySummary">R$ 0,00</span>
-    </div>
-
-    <div class="total">
-      <span>Total</span>
-      <span id="total">R$ 0,00</span>
-    </div>
-
-    <button class="order-button" onclick="sendWhatsApp()">
-      📲 PEDIR PELO WHATSAPP
+    <button class="btn-principal" onclick="abrirPedido()">
+      🛒 MONTAR MINHA MARMITA
     </button>
 
   </section>
 
+  <div class="info">
+
+    <div>
+      <strong>🔥</strong>
+      Comida caseira
+    </div>
+
+    <div>
+      <strong>🛵</strong>
+      Delivery
+    </div>
+
+    <div>
+      <strong>💰</strong>
+      A partir de R$15
+    </div>
+
+    <div>
+      <strong>📲</strong>
+      Pedido fácil
+    </div>
+
+  </div>
+
+
+  <!-- ÁREA DO PEDIDO -->
+
+  <div id="pedidoArea">
+
+    <button class="voltar" onclick="voltarInicio()">
+      ← Voltar
+    </button>
+
+    <div class="card">
+
+      <h2>🍱 Escolha sua marmita</h2>
+
+      <div class="tipos">
+
+        <button
+          class="tipo ativo"
+          id="m15"
+          onclick="selecionarTamanho('M')">
+
+          M<br>
+          <small>R$ 15,00</small>
+
+        </button>
+
+        <button
+          class="tipo"
+          id="m18"
+          onclick="selecionarTamanho('G')">
+
+          G<br>
+          <small>R$ 18,00</small>
+
+        </button>
+
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>🍚 Guarnições</h2>
+
+      <p>Escolha de 2 a 4 opções</p>
+
+      <label><input type="checkbox" class="guarnicao" value="Baião"> Baião</label>
+      <label><input type="checkbox" class="guarnicao" value="Arroz branco"> Arroz branco</label>
+      <label><input type="checkbox" class="guarnicao" value="Feijão de corda"> Feijão de corda</label>
+      <label><input type="checkbox" class="guarnicao" value="Feijão preto"> Feijão preto</label>
+      <label><input type="checkbox" class="guarnicao" value="Macarrão"> Macarrão</label>
+      <label><input type="checkbox" class="guarnicao" value="Farofa"> Farofa</label>
+      <label><input type="checkbox" class="guarnicao" value="Cuscuz"> Cuscuz</label>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>🥗 Saladas</h2>
+
+      <p>M: até 1 • G: até 2</p>
+
+      <label><input type="checkbox" class="salada" value="Vinagrete"> Vinagrete</label>
+      <label><input type="checkbox" class="salada" value="Salada de maionese"> Salada de maionese</label>
+      <label><input type="checkbox" class="salada" value="Salada verde"> Salada verde</label>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>🍗 Mistura</h2>
+
+      <p>M: escolha 1 • G: escolha até 2</p>
+
+      <label><input type="checkbox" class="proteina" value="Frango ao molho"> Frango ao molho</label>
+      <label><input type="checkbox" class="proteina" value="Bisteca de porco ao molho"> Bisteca de porco ao molho</label>
+      <label><input type="checkbox" class="proteina" value="Carne moída"> Carne moída</label>
+      <label><input type="checkbox" class="proteina" value="Peixe frito"> Peixe frito</label>
+      <label><input type="checkbox" class="proteina" value="Fígado"> Fígado</label>
+      <label><input type="checkbox" class="proteina" value="Calabresa"> Calabresa</label>
+      <label><input type="checkbox" class="proteina" value="Ovo frito"> Ovo frito</label>
+      <label><input type="checkbox" class="proteina" value="Frango assado"> Frango assado</label>
+      <label><input type="checkbox" class="proteina" value="Linguiça assada"> Linguiça assada</label>
+      <label><input type="checkbox" class="proteina" value="Bisteca suína assada"> Bisteca suína assada</label>
+
+    </div>
+
+
+    <div class="card">
+
+      <h2>🛵 Entrega</h2>
+
+      <label>
+        <input type="radio" name="entrega" value="3">
+        Próximo • R$ 3,00
+      </label>
+
+      <label>
+        <input type="radio" name="entrega" value="0">
+        Longe • Taxa a combinar
+      </label>
+
+      <h3>📍 Endereço</h3>
+
+      <input
+        type="text"
+        id="endereco"
+        placeholder="Digite seu endereço completo">
+
+    </div>
+
+
+    <div class="resumo">
+
+      <h2>🧾 Meu pedido</h2>
+
+      <p id="resumoTexto">
+        Escolha os itens da sua marmita.
+      </p>
+
+      <div id="total">
+        Total: R$ 15,00
+      </div>
+
+      <div class="erro" id="erro"></div>
+
+      <button id="pedir" onclick="fazerPedido()">
+        📲 FAZER PEDIDO PELO WHATSAPP
+      </button>
+
+    </div>
+
+  </div>
+
 </main>
 
-<div class="bottom">
-  🍱 Marmita Flash • <strong>Peça pelo WhatsApp</strong>
-</div>
+<footer>
+  ⚡ Marmita Flash • Fortaleza - CE
+</footer>
+
 
 <script>
 
-  const whatsapp = "5585997518122";
+const whatsapp = "5585997518122";
 
-  let selectedSize = null;
-  let selectedPrice = 0;
+let tamanho = "M";
+let preco = 15;
 
-  const sizes = document.querySelectorAll(".size");
 
-  sizes.forEach(size => {
+function abrirPedido() {
 
-    size.addEventListener("click", () => {
+  document.getElementById("inicio").style.display = "none";
 
-      sizes.forEach(s => s.classList.remove("selected"));
+  document.querySelector(".info").style.display = "none";
 
-      size.classList.add("selected");
+  document.getElementById("pedidoArea").style.display = "block";
 
-      selectedSize = size.dataset.size;
-      selectedPrice = Number(size.dataset.price);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
 
-      updateLimits();
-      updateSummary();
+}
 
-    });
+
+function voltarInicio() {
+
+  document.getElementById("inicio").style.display = "block";
+
+  document.querySelector(".info").style.display = "grid";
+
+  document.getElementById("pedidoArea").style.display = "none";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+}
+
+
+function selecionarTamanho(tipo) {
+
+  tamanho = tipo;
+
+  if (tipo === "M") {
+
+    preco = 15;
+
+    document.getElementById("m15").classList.add("ativo");
+
+    document.getElementById("m18").classList.remove("ativo");
+
+  } else {
+
+    preco = 18;
+
+    document.getElementById("m18").classList.add("ativo");
+
+    document.getElementById("m15").classList.remove("ativo");
+
+  }
+
+  atualizarLimites();
+
+}
+
+
+function atualizarLimites() {
+
+  const saladas =
+    document.querySelectorAll(".salada");
+
+  const proteinas =
+    document.querySelectorAll(".proteina");
+
+
+  saladas.forEach(item => {
+
+    item.checked = false;
+    item.disabled = false;
 
   });
 
-  function updateLimits() {
 
-    const saladInputs = document.querySelectorAll("#saladas input");
-    const proteinInputs = document.querySelectorAll("#proteinas input");
+  proteinas.forEach(item => {
 
-    saladInputs.forEach(input => {
-      input.checked = false;
-    });
-
-    proteinInputs.forEach(input => {
-      input.checked = false;
-    });
-
-    document.querySelectorAll(".option").forEach(option => {
-      option.classList.remove("checked");
-    });
-
-    updateSummary();
-  }
-
-  function setupLimits(containerId, getLimit) {
-
-    const container = document.getElementById(containerId);
-
-    container.addEventListener("change", event => {
-
-      if (!event.target.matches("input")) return;
-
-      const inputs = container.querySelectorAll("input");
-      const checked = container.querySelectorAll("input:checked");
-      const limit = getLimit();
-
-      if (checked.length > limit) {
-        event.target.checked = false;
-        showError(`Você pode escolher no máximo ${limit} opção(ões).`);
-      }
-
-      const option = event.target.closest(".option");
-
-      if (option) {
-        option.classList.toggle("checked", event.target.checked);
-      }
-
-      updateSummary();
-
-    });
-
-  }
-
-  setupLimits("guarnicoes", () => 4);
-
-  setupLimits("saladas", () => {
-    return selectedSize === "M" ? 1 : 2;
-  });
-
-  setupLimits("proteinas", () => {
-    return selectedSize === "M" ? 1 : 2;
-  });
-
-  document.querySelectorAll('input[name="delivery"]').forEach(input => {
-
-    input.addEventListener("change", () => {
-      updateSummary();
-    });
+    item.checked = false;
+    item.disabled = false;
 
   });
 
-  function getChecked(containerId) {
+}
 
-    return [...document.querySelectorAll(
-      `#${containerId} input:checked`
-    )].map(input => input.value);
+
+document.addEventListener("change", function(e) {
+
+  if (e.target.classList.contains("guarnicao")) {
+
+    const selecionadas =
+      document.querySelectorAll(".guarnicao:checked");
+
+    if (selecionadas.length > 4) {
+
+      e.target.checked = false;
+
+      alert("Você pode escolher no máximo 4 guarnições.");
+
+    }
 
   }
 
-  function updateSummary() {
 
-    const guarnicoes = getChecked("guarnicoes");
-    const saladas = getChecked("saladas");
-    const proteinas = getChecked("proteinas");
+  if (e.target.classList.contains("salada")) {
 
-    const deliveryInput =
-      document.querySelector('input[name="delivery"]:checked');
+    const limite =
+      tamanho === "M" ? 1 : 2;
 
-    const deliveryPrice =
-      deliveryInput ? Number(deliveryInput.value) : 0;
+    const selecionadas =
+      document.querySelectorAll(".salada:checked");
 
-    let total = selectedPrice + deliveryPrice;
+    if (selecionadas.length > limite) {
 
-    document.getElementById("sizeSummary").textContent =
-      selectedSize
-        ? `${selectedSize} • R$ ${selectedPrice.toFixed(2).replace(".", ",")}`
-        : "Não escolhida";
+      e.target.checked = false;
 
-    document.getElementById("itemsSummary").textContent =
-      guarnicoes.length + saladas.length + proteinas.length;
+      alert(
+        `A marmita ${tamanho} permite até ${limite} salada(s).`
+      );
 
-    if (!deliveryInput) {
-      document.getElementById("deliverySummary").textContent =
-        "Não escolhida";
-    } else if (deliveryPrice === 0) {
-      document.getElementById("deliverySummary").textContent =
-        "A combinar";
-    } else {
-      document.getElementById("deliverySummary").textContent =
-        "R$ 3,00";
     }
-
-    document.getElementById("total").textContent =
-      deliveryInput && deliveryPrice === 0
-        ? `R$ ${selectedPrice.toFixed(2).replace(".", ",")} + entrega`
-        : `R$ ${total.toFixed(2).replace(".", ",")}`;
 
   }
 
-  function showError(message) {
 
-    const error = document.getElementById("error");
+  if (e.target.classList.contains("proteina")) {
 
-    error.textContent = message;
-    error.style.display = "block";
+    const limite =
+      tamanho === "M" ? 1 : 2;
 
-    setTimeout(() => {
-      error.style.display = "none";
-    }, 3000);
+    const selecionadas =
+      document.querySelectorAll(".proteina:checked");
+
+    if (selecionadas.length > limite) {
+
+      e.target.checked = false;
+
+      alert(
+        `A marmita ${tamanho} permite até ${limite} mistura(s).`
+      );
+
+    }
 
   }
 
-  function sendWhatsApp() {
+});
 
-    const guarnicoes = getChecked("guarnicoes");
-    const saladas = getChecked("saladas");
-    const proteinas = getChecked("proteinas");
 
-    const delivery =
-      document.querySelector('input[name="delivery"]:checked');
+function fazerPedido() {
 
-    const address =
-      document.getElementById("address").value.trim();
+  const erro =
+    document.getElementById("erro");
 
-    if (!selectedSize) {
-      showError("Escolha o tamanho da marmita.");
-      return;
-    }
+  erro.style.display = "none";
 
-    if (guarnicoes.length < 2) {
-      showError("Escolha pelo menos 2 guarnições.");
-      return;
-    }
 
-    if (!delivery) {
-      showError("Escolha a opção de entrega.");
-      return;
-    }
+  const guarnicoes =
+    [...document.querySelectorAll(".guarnicao:checked")]
+    .map(x => x.value);
 
-    if (!address) {
-      showError("Digite seu endereço.");
-      return;
-    }
 
-    if (proteinas.length === 0) {
-      showError("Escolha pelo menos 1 proteína.");
-      return;
-    }
+  const saladas =
+    [...document.querySelectorAll(".salada:checked")]
+    .map(x => x.value);
 
-    const deliveryText =
-      Number(delivery.value) === 0
-        ? "Taxa de entrega: A COMBINAR"
-        : "Taxa de entrega: R$ 3,00";
 
-    const total =
-      Number(delivery.value) === 0
-        ? `R$ ${selectedPrice.toFixed(2).replace(".", ",")} + entrega`
-        : `R$ ${(selectedPrice + Number(delivery.value))
-            .toFixed(2)
-            .replace(".", ",")}`;
+  const proteinas =
+    [...document.querySelectorAll(".proteina:checked")]
+    .map(x => x.value);
 
-    const proteinaText =
-      proteinas.length === 1
-        ? `${proteinas[0]} × 2 pedaços/porções`
-        : proteinas.join(", ");
 
-    const message = `
-🍱 *NOVO PEDIDO - MARMITA FLASH* ⚡
+  const entrega =
+    document.querySelector(
+      'input[name="entrega"]:checked'
+    );
 
-📦 *Marmita:* ${selectedSize}
-💰 *Valor:* R$ ${selectedPrice.toFixed(2).replace(".", ",")}
+
+  const endereco =
+    document.getElementById("endereco").value.trim();
+
+
+  if (guarnicoes.length < 2) {
+
+    mostrarErro(
+      "Escolha pelo menos 2 guarnições."
+    );
+
+    return;
+
+  }
+
+
+  if (proteinas.length < 1) {
+
+    mostrarErro(
+      "Escolha pelo menos 1 mistura."
+    );
+
+    return;
+
+  }
+
+
+  if (!entrega) {
+
+    mostrarErro(
+      "Escolha a opção de entrega."
+    );
+
+    return;
+
+  }
+
+
+  if (!endereco) {
+
+    mostrarErro(
+      "Digite seu endereço."
+    );
+
+    return;
+
+  }
+
+
+  let taxa = Number(entrega.value);
+
+  let total = preco + taxa;
+
+
+  let textoProteinas = proteinas.join(", ");
+
+  if (proteinas.length === 1) {
+
+    textoProteinas += " × 2 porções";
+
+  }
+
+
+  let mensagem =
+
+`⚡ *MARMITA FLASH - NOVO PEDIDO*
+
+🍱 *Tamanho:* ${tamanho}
+💰 *Valor:* R$ ${preco.toFixed(2)}
 
 🍚 *Guarnições:*
-${guarnicoes.map(item => `• ${item}`).join("\n")}
+${guarnicoes.map(x => "• " + x).join("\n")}
 
 🥗 *Saladas:*
-${saladas.length
-  ? saladas.map(item => `• ${item}`).join("\n")
-  : "• Nenhuma"}
+${saladas.length ? saladas.map(x => "• " + x).join("\n") : "• Nenhuma"}
 
-🍖 *Proteínas:*
-• ${proteinaText}
+🍗 *Mistura:*
+• ${textoProteinas}
 
 🛵 *Entrega:*
-${deliveryText}
+${taxa === 3 ? "Próximo - R$ 3,00" : "Longe - taxa a combinar"}
 
 📍 *Endereço:*
-${address}
+${endereco}
 
-💵 *TOTAL:* ${total}
-    `.trim();
+💵 *TOTAL:* ${
+taxa === 3
+? "R$ " + total.toFixed(2)
+: "R$ " + preco.toFixed(2) + " + taxa de entrega"
+}
 
-    const url =
-      `https://wa.me/${whatsapp}?text=${encodeURIComponent(message)}`;
+Obrigado! 🙏`;
 
-    window.open(url, "_blank");
 
-  }
+  const url =
+    `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensagem)}`;
+
+
+  window.open(url, "_blank");
+
+}
+
+
+function mostrarErro(texto) {
+
+  const erro =
+    document.getElementById("erro");
+
+  erro.textContent = texto;
+
+  erro.style.display = "block";
+
+}
 
 </script>
 
