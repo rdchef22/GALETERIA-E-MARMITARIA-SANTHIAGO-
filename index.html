@@ -1,426 +1,299 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Marmita Flash | Delivery</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marmita Flash</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
-      padding-bottom: 30px;
-    }
+body{
+  font-family:Arial,sans-serif;
+  background:#f5f5f5;
+  color:#222;
+}
 
-    header {
-      background: linear-gradient(135deg, #ff5b00, #ff9500);
-      color: white;
-      padding: 30px 20px 35px;
-      border-radius: 0 0 30px 30px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.15);
-    }
+header{
+  background:linear-gradient(135deg,#ff6a00,#ff9500);
+  color:white;
+  padding:30px 20px;
+  text-align:center;
+}
 
-    .logo {
-      font-size: 28px;
-      font-weight: 900;
-    }
+header h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
 
-    .slogan {
-      margin-top: 8px;
-      font-size: 15px;
-    }
+header p{
+  font-size:15px;
+}
 
-    main {
-      max-width: 600px;
-      margin: auto;
-      padding: 18px;
-    }
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+}
 
-    .inicio {
-      text-align: center;
-      padding: 28px 20px;
-      background: white;
-      border-radius: 25px;
-      margin-top: -10px;
-      box-shadow: 0 5px 20px rgba(0,0,0,.08);
-    }
+.card{
+  background:white;
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
 
-    .emoji {
-      font-size: 65px;
-      margin-bottom: 10px;
-    }
+h2{
+  font-size:20px;
+  margin-bottom:15px;
+}
 
-    .inicio h2 {
-      font-size: 25px;
-      margin-bottom: 10px;
-    }
+.tamanhos{
+  display:flex;
+  gap:12px;
+}
 
-    .inicio p {
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 22px;
-    }
+.tamanho{
+  flex:1;
+  border:2px solid #ddd;
+  background:white;
+  border-radius:15px;
+  padding:18px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .btn-principal {
-      width: 100%;
-      border: none;
-      padding: 17px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #ff5b00, #ff8500);
-      color: white;
-      font-size: 18px;
-      font-weight: 900;
-      cursor: pointer;
-      box-shadow: 0 7px 18px rgba(255,91,0,.25);
-    }
+.tamanho small{
+  font-size:14px;
+}
 
-    .info {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 15px;
-    }
+.tamanho.ativo{
+  background:#ff6a00;
+  border-color:#ff6a00;
+  color:white;
+}
 
-    .info div {
-      background: white;
-      padding: 15px 10px;
-      border-radius: 17px;
-      text-align: center;
-      box-shadow: 0 3px 12px rgba(0,0,0,.06);
-      font-size: 13px;
-    }
+label{
+  display:block;
+  background:#fafafa;
+  border:1px solid #ddd;
+  padding:12px;
+  border-radius:10px;
+  margin:8px 0;
+}
 
-    .info strong {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 5px;
-    }
+input{
+  margin-right:8px;
+}
 
-    #pedidoArea {
-      display: none;
-      margin-top: 20px;
-    }
+input[type="text"]{
+  width:100%;
+  padding:14px;
+  border:1px solid #ccc;
+  border-radius:10px;
+  font-size:16px;
+}
 
-    .card {
-      background: white;
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 15px;
-      box-shadow: 0 4px 15px rgba(0,0,0,.07);
-    }
+.entrega{
+  display:flex;
+  gap:10px;
+}
 
-    .card h2 {
-      font-size: 20px;
-      margin-bottom: 14px;
-    }
+.entrega label{
+  flex:1;
+}
 
-    .card h3 {
-      font-size: 17px;
-      margin: 15px 0 10px;
-    }
+.resumo{
+  background:#222;
+  color:white;
+}
 
-    .tipos {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
+#total{
+  font-size:25px;
+  font-weight:bold;
+  margin-top:15px;
+}
 
-    .tipo {
-      padding: 18px 10px;
-      border: 2px solid #eee;
-      border-radius: 16px;
-      background: #fff;
-      cursor: pointer;
-      text-align: center;
-      font-weight: 800;
-    }
+.whatsapp{
+  width:100%;
+  border:0;
+  border-radius:14px;
+  padding:17px;
+  margin-top:18px;
+  background:#25D366;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+}
 
-    .tipo.ativo {
-      background: #fff1e6;
-      border-color: #ff6a00;
-      color: #ff6a00;
-    }
+.voltar{
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:12px;
+  background:#eee;
+  margin-bottom:15px;
+  cursor:pointer;
+}
 
-    label {
-      display: block;
-      background: #fafafa;
-      border: 2px solid #eee;
-      border-radius: 13px;
-      padding: 13px;
-      margin: 8px 0;
-      cursor: pointer;
-    }
+#pedido{
+  display:none;
+}
 
-    input[type="checkbox"],
-    input[type="radio"] {
-      accent-color: #ff6a00;
-      margin-right: 8px;
-    }
+.inicio{
+  text-align:center;
+}
 
-    input[type="text"] {
-      width: 100%;
-      padding: 14px;
-      border: 2px solid #eee;
-      border-radius: 13px;
-      outline: none;
-      font-size: 15px;
-    }
-
-    input[type="text"]:focus {
-      border-color: #ff6a00;
-    }
-
-    .resumo {
-      background: #202020;
-      color: white;
-      border-radius: 20px;
-      padding: 20px;
-    }
-
-    .resumo h2 {
-      color: white;
-    }
-
-    #total {
-      color: #ff963d;
-      font-size: 24px;
-      font-weight: 900;
-      margin: 12px 0;
-    }
-
-    #pedir {
-      width: 100%;
-      border: none;
-      padding: 17px;
-      border-radius: 15px;
-      background: #19b957;
-      color: white;
-      font-size: 17px;
-      font-weight: 900;
-      cursor: pointer;
-    }
-
-    .erro {
-      background: #fff0f0;
-      color: #c62828;
-      padding: 12px;
-      border-radius: 12px;
-      margin-top: 10px;
-      display: none;
-    }
-
-    .voltar {
-      background: transparent;
-      border: none;
-      color: #ff6a00;
-      font-weight: 800;
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      color: #777;
-      font-size: 13px;
-      padding: 25px 10px;
-    }
-
-    @media (min-width: 700px) {
-      main {
-        padding: 30px;
-      }
-    }
-  </style>
+.inicio button{
+  width:100%;
+  padding:18px;
+  border:0;
+  border-radius:15px;
+  background:#ff6a00;
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:20px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <div class="logo">⚡ MARMITA FLASH</div>
-  <div class="slogan">Sua marmita quentinha, rápida e do seu jeito!</div>
+  <h1>⚡ MARMITA FLASH</h1>
+  <p>Comida gostosa direto na sua casa!</p>
 </header>
 
-<main>
+<div class="container">
 
-  <!-- TELA INICIAL -->
+  <div id="inicio" class="card inicio">
+    <h2>🍱 Monte sua marmita!</h2>
+    <p>Escolha o tamanho, acompanhamentos e sua mistura.</p>
 
-  <section class="inicio" id="inicio">
-
-    <div class="emoji">🍱</div>
-
-    <h2>Monte sua marmita!</h2>
-
-    <p>
-      Escolha o tamanho, monte do seu jeito
-      e peça pelo WhatsApp.
-    </p>
-
-    <button class="btn-principal" onclick="abrirPedido()">
+    <button onclick="abrirPedido()">
       🛒 MONTAR MINHA MARMITA
     </button>
-
-  </section>
-
-  <div class="info">
-
-    <div>
-      <strong>🔥</strong>
-      Comida caseira
-    </div>
-
-    <div>
-      <strong>🛵</strong>
-      Delivery
-    </div>
-
-    <div>
-      <strong>💰</strong>
-      A partir de R$15
-    </div>
-
-    <div>
-      <strong>📲</strong>
-      Pedido fácil
-    </div>
-
   </div>
 
-
-  <!-- ÁREA DO PEDIDO -->
-
-  <div id="pedidoArea">
+  <div id="pedido">
 
     <button class="voltar" onclick="voltarInicio()">
       ← Voltar
     </button>
 
     <div class="card">
+      <h2>📦 Escolha o tamanho</h2>
 
-      <h2>🍱 Escolha sua marmita</h2>
+      <div class="tamanhos">
 
-      <div class="tipos">
-
-        <button
-          class="tipo ativo"
-          id="m15"
-          onclick="selecionarTamanho('M')">
-
+        <button id="btnM"
+                class="tamanho ativo"
+                onclick="mudarTamanho('M')">
           M<br>
           <small>R$ 15,00</small>
-
         </button>
 
-        <button
-          class="tipo"
-          id="m18"
-          onclick="selecionarTamanho('G')">
-
+        <button id="btnG"
+                class="tamanho"
+                onclick="mudarTamanho('G')">
           G<br>
           <small>R$ 18,00</small>
-
         </button>
 
       </div>
-
     </div>
 
-
     <div class="card">
-
       <h2>🍚 Guarnições</h2>
 
-      <p>Escolha de 2 a 4 opções</p>
-
-      <label><input type="checkbox" class="guarnicao" value="Baião"> Baião</label>
-      <label><input type="checkbox" class="guarnicao" value="Arroz branco"> Arroz branco</label>
-      <label><input type="checkbox" class="guarnicao" value="Feijão de corda"> Feijão de corda</label>
-      <label><input type="checkbox" class="guarnicao" value="Feijão preto"> Feijão preto</label>
-      <label><input type="checkbox" class="guarnicao" value="Macarrão"> Macarrão</label>
-      <label><input type="checkbox" class="guarnicao" value="Farofa"> Farofa</label>
-      <label><input type="checkbox" class="guarnicao" value="Cuscuz"> Cuscuz</label>
-
+      <label><input type="checkbox"> Baião</label>
+      <label><input type="checkbox"> Arroz branco</label>
+      <label><input type="checkbox"> Feijão de corda</label>
+      <label><input type="checkbox"> Feijão preto</label>
+      <label><input type="checkbox"> Macarrão</label>
+      <label><input type="checkbox"> Farofa</label>
+      <label><input type="checkbox"> Cuscuz</label>
     </div>
 
-
     <div class="card">
-
       <h2>🥗 Saladas</h2>
 
-      <p>M: até 1 • G: até 2</p>
-
-      <label><input type="checkbox" class="salada" value="Vinagrete"> Vinagrete</label>
-      <label><input type="checkbox" class="salada" value="Salada de maionese"> Salada de maionese</label>
-      <label><input type="checkbox" class="salada" value="Salada verde"> Salada verde</label>
-
+      <label><input type="checkbox"> Vinagrete</label>
+      <label><input type="checkbox"> Salada de maionese</label>
+      <label><input type="checkbox"> Salada verde</label>
     </div>
 
-
     <div class="card">
+      <h2>🍗 Proteínas</h2>
 
-      <h2>🍗 Mistura</h2>
-
-      <p>M: escolha 1 • G: escolha até 2</p>
-
-      <label><input type="checkbox" class="proteina" value="Frango ao molho"> Frango ao molho</label>
-      <label><input type="checkbox" class="proteina" value="Bisteca de porco ao molho"> Bisteca de porco ao molho</label>
-      <label><input type="checkbox" class="proteina" value="Carne moída"> Carne moída</label>
-      <label><input type="checkbox" class="proteina" value="Peixe frito"> Peixe frito</label>
-      <label><input type="checkbox" class="proteina" value="Fígado"> Fígado</label>
-      <label><input type="checkbox" class="proteina" value="Calabresa"> Calabresa</label>
-      <label><input type="checkbox" class="proteina" value="Ovo frito"> Ovo frito</label>
-      <label><input type="checkbox" class="proteina" value="Frango assado"> Frango assado</label>
-      <label><input type="checkbox" class="proteina" value="Linguiça assada"> Linguiça assada</label>
-      <label><input type="checkbox" class="proteina" value="Bisteca suína assada"> Bisteca suína assada</label>
-
+      <label><input type="checkbox"> Frango ao molho</label>
+      <label><input type="checkbox"> Bisteca de porco ao molho</label>
+      <label><input type="checkbox"> Carne moída</label>
+      <label><input type="checkbox"> Peixe frito</label>
+      <label><input type="checkbox"> Fígado</label>
+      <label><input type="checkbox"> Calabresa</label>
+      <label><input type="checkbox"> Ovo frito</label>
+      <label><input type="checkbox"> Frango assado</label>
+      <label><input type="checkbox"> Linguiça assada</label>
+      <label><input type="checkbox"> Bisteca suína assada</label>
     </div>
 
-
     <div class="card">
-
       <h2>🛵 Entrega</h2>
 
-      <label>
-        <input type="radio" name="entrega" value="3">
-        Próximo • R$ 3,00
-      </label>
+      <div class="entrega">
 
-      <label>
-        <input type="radio" name="entrega" value="0">
-        Longe • Taxa a combinar
-      </label>
+        <label>
+          <input type="radio"
+                 name="entrega"
+                 value="3"
+                 onchange="atualizarTotal()">
+          Perto<br>
+          R$ 3,00
+        </label>
 
-      <h3>📍 Endereço</h3>
+        <label>
+          <input type="radio"
+                 name="entrega"
+                 value="0"
+                 onchange="atualizarTotal()">
+          Longe<br>
+          A combinar
+        </label>
 
-      <input
-        type="text"
-        id="endereco"
-        placeholder="Digite seu endereço completo">
-
+      </div>
     </div>
 
+    <div class="card">
+      <h2>📍 Endereço</h2>
 
-    <div class="resumo">
+      <input
+        id="endereco"
+        type="text"
+        placeholder="Digite seu endereço">
+    </div>
 
-      <h2>🧾 Meu pedido</h2>
+    <div class="card resumo">
 
-      <p id="resumoTexto">
-        Escolha os itens da sua marmita.
+      <h2>🛒 Meu pedido</h2>
+
+      <p id="tamanhoResumo">
+        Marmita M
       </p>
 
       <div id="total">
         Total: R$ 15,00
       </div>
 
-      <div class="erro" id="erro"></div>
-
-      <button id="pedir" onclick="fazerPedido()">
+      <button class="whatsapp" onclick="enviarWhatsApp()">
         📲 FAZER PEDIDO PELO WHATSAPP
       </button>
 
@@ -428,308 +301,123 @@
 
   </div>
 
-</main>
-
-<footer>
-  ⚡ Marmita Flash • Fortaleza - CE
-</footer>
-
+</div>
 
 <script>
 
-const whatsapp = "5585997518122";
+const WHATSAPP = "5585997518122";
 
-let tamanho = "M";
-let preco = 15;
+let tamanhoAtual = "M";
+let precoAtual = 15;
 
-
-function abrirPedido() {
+function abrirPedido(){
 
   document.getElementById("inicio").style.display = "none";
 
-  document.querySelector(".info").style.display = "none";
-
-  document.getElementById("pedidoArea").style.display = "block";
-
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  document.getElementById("pedido").style.display = "block";
 
 }
 
+function voltarInicio(){
 
-function voltarInicio() {
+  document.getElementById("pedido").style.display = "none";
 
   document.getElementById("inicio").style.display = "block";
 
-  document.querySelector(".info").style.display = "grid";
+}
 
-  document.getElementById("pedidoArea").style.display = "none";
+function mudarTamanho(tamanho){
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
+  tamanhoAtual = tamanho;
+
+  if(tamanho === "M"){
+
+    precoAtual = 15;
+
+    document.getElementById("btnM").classList.add("ativo");
+
+    document.getElementById("btnG").classList.remove("ativo");
+
+  }
+
+  if(tamanho === "G"){
+
+    precoAtual = 18;
+
+    document.getElementById("btnG").classList.add("ativo");
+
+    document.getElementById("btnM").classList.remove("ativo");
+
+  }
+
+  document.getElementById("tamanhoResumo").innerText =
+    "Marmita " + tamanhoAtual;
+
+  atualizarTotal();
 
 }
 
-
-function selecionarTamanho(tipo) {
-
-  tamanho = tipo;
-
-  if (tipo === "M") {
-
-    preco = 15;
-
-    document.getElementById("m15").classList.add("ativo");
-
-    document.getElementById("m18").classList.remove("ativo");
-
-  } else {
-
-    preco = 18;
-
-    document.getElementById("m18").classList.add("ativo");
-
-    document.getElementById("m15").classList.remove("ativo");
-
-  }
-
-  atualizarLimites();
-
-}
-
-
-function atualizarLimites() {
-
-  const saladas =
-    document.querySelectorAll(".salada");
-
-  const proteinas =
-    document.querySelectorAll(".proteina");
-
-
-  saladas.forEach(item => {
-
-    item.checked = false;
-    item.disabled = false;
-
-  });
-
-
-  proteinas.forEach(item => {
-
-    item.checked = false;
-    item.disabled = false;
-
-  });
-
-}
-
-
-document.addEventListener("change", function(e) {
-
-  if (e.target.classList.contains("guarnicao")) {
-
-    const selecionadas =
-      document.querySelectorAll(".guarnicao:checked");
-
-    if (selecionadas.length > 4) {
-
-      e.target.checked = false;
-
-      alert("Você pode escolher no máximo 4 guarnições.");
-
-    }
-
-  }
-
-
-  if (e.target.classList.contains("salada")) {
-
-    const limite =
-      tamanho === "M" ? 1 : 2;
-
-    const selecionadas =
-      document.querySelectorAll(".salada:checked");
-
-    if (selecionadas.length > limite) {
-
-      e.target.checked = false;
-
-      alert(
-        `A marmita ${tamanho} permite até ${limite} salada(s).`
-      );
-
-    }
-
-  }
-
-
-  if (e.target.classList.contains("proteina")) {
-
-    const limite =
-      tamanho === "M" ? 1 : 2;
-
-    const selecionadas =
-      document.querySelectorAll(".proteina:checked");
-
-    if (selecionadas.length > limite) {
-
-      e.target.checked = false;
-
-      alert(
-        `A marmita ${tamanho} permite até ${limite} mistura(s).`
-      );
-
-    }
-
-  }
-
-});
-
-
-function fazerPedido() {
-
-  const erro =
-    document.getElementById("erro");
-
-  erro.style.display = "none";
-
-
-  const guarnicoes =
-    [...document.querySelectorAll(".guarnicao:checked")]
-    .map(x => x.value);
-
-
-  const saladas =
-    [...document.querySelectorAll(".salada:checked")]
-    .map(x => x.value);
-
-
-  const proteinas =
-    [...document.querySelectorAll(".proteina:checked")]
-    .map(x => x.value);
-
+function atualizarTotal(){
 
   const entrega =
-    document.querySelector(
-      'input[name="entrega"]:checked'
-    );
+    document.querySelector('input[name="entrega"]:checked');
 
+  let total = precoAtual;
+
+  if(entrega && entrega.value === "3"){
+
+    total = precoAtual + 3;
+
+    document.getElementById("total").innerText =
+      "Total: R$ " +
+      total.toFixed(2).replace(".",",");
+
+    return;
+  }
+
+  if(entrega && entrega.value === "0"){
+
+    document.getElementById("total").innerText =
+      "Total: R$ " +
+      precoAtual.toFixed(2).replace(".",",") +
+      " + taxa";
+
+    return;
+  }
+
+  document.getElementById("total").innerText =
+    "Total: R$ " +
+    precoAtual.toFixed(2).replace(".",",");
+
+}
+
+function enviarWhatsApp(){
 
   const endereco =
-    document.getElementById("endereco").value.trim();
-
-
-  if (guarnicoes.length < 2) {
-
-    mostrarErro(
-      "Escolha pelo menos 2 guarnições."
-    );
-
-    return;
-
-  }
-
-
-  if (proteinas.length < 1) {
-
-    mostrarErro(
-      "Escolha pelo menos 1 mistura."
-    );
-
-    return;
-
-  }
-
-
-  if (!entrega) {
-
-    mostrarErro(
-      "Escolha a opção de entrega."
-    );
-
-    return;
-
-  }
-
-
-  if (!endereco) {
-
-    mostrarErro(
-      "Digite seu endereço."
-    );
-
-    return;
-
-  }
-
-
-  let taxa = Number(entrega.value);
-
-  let total = preco + taxa;
-
-
-  let textoProteinas = proteinas.join(", ");
-
-  if (proteinas.length === 1) {
-
-    textoProteinas += " × 2 porções";
-
-  }
-
+    document.getElementById("endereco").value;
 
   let mensagem =
+    "Olá! Quero fazer um pedido na Marmita Flash.%0A%0A" +
+    "Tamanho: Marmita " + tamanhoAtual +
+    "%0A" +
+    "Valor: R$ " +
+    precoAtual.toFixed(2).replace(".",",");
 
-`⚡ *MARMITA FLASH - NOVO PEDIDO*
+  if(endereco){
 
-🍱 *Tamanho:* ${tamanho}
-💰 *Valor:* R$ ${preco.toFixed(2)}
+    mensagem +=
+      "%0AEndereço: " +
+      encodeURIComponent(endereco);
 
-🍚 *Guarnições:*
-${guarnicoes.map(x => "• " + x).join("\n")}
+  }
 
-🥗 *Saladas:*
-${saladas.length ? saladas.map(x => "• " + x).join("\n") : "• Nenhuma"}
-
-🍗 *Mistura:*
-• ${textoProteinas}
-
-🛵 *Entrega:*
-${taxa === 3 ? "Próximo - R$ 3,00" : "Longe - taxa a combinar"}
-
-📍 *Endereço:*
-${endereco}
-
-💵 *TOTAL:* ${
-taxa === 3
-? "R$ " + total.toFixed(2)
-: "R$ " + preco.toFixed(2) + " + taxa de entrega"
-}
-
-Obrigado! 🙏`;
-
-
-  const url =
-    `https://wa.me/${whatsapp}?text=${encodeURIComponent(mensagem)}`;
-
-
-  window.open(url, "_blank");
-
-}
-
-
-function mostrarErro(texto) {
-
-  const erro =
-    document.getElementById("erro");
-
-  erro.textContent = texto;
-
-  erro.style.display = "block";
+  window.open(
+    "https://wa.me/" +
+    WHATSAPP +
+    "?text=" +
+    mensagem,
+    "_blank"
+  );
 
 }
 
